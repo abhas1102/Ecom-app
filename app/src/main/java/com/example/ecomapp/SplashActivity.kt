@@ -3,9 +3,9 @@ package com.example.ecomapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class HomeActivity : AppCompatActivity() {
+class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        setContentView(R.layout.activity_splash)
     }
 }

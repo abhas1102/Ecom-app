@@ -3,8 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/EcomApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/EcomApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.111" />
+        <entry key="..\:/EcomApp/app/src/main/res/drawable/ic_splashlogo.xml" value="0.1" />
+        <entry key="..\:/EcomApp/app/src/main/res/drawable/ic_splashscreen.xml" value="0.111" />
         <entry key="..\:/EcomApp/app/src/main/res/layout/activity_main.xml" value="0.1403985507246377" />
+        <entry key="..\:/EcomApp/app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="..\:/EcomApp/app/src/main/res/layout/splash_screen.xml" value="0.10587431693989072" />
       </map>
     </option>
