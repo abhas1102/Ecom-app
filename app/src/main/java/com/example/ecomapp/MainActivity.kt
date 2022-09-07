@@ -9,6 +9,8 @@ import android.view.View
 import android.window.SplashScreen
 import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.fragment.app.FragmentTransaction
+import com.example.ecomapp.view.HomeFragment
 import com.example.ecomapp.viewmodel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
@@ -23,6 +25,11 @@ class MainActivity : AppCompatActivity() {
 
         }
         setContentView(R.layout.activity_main)
+        val homeFragment = HomeFragment()
 
+        //Starting the fragment transaction from SupportFragmentManager class
+        val ft : FragmentTransaction = supportFragmentManager.beginTransaction()
+        ft.replace(R.id.flFragment, homeFragment)
+        ft.commit()
     }
 }
