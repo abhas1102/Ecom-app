@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -11,91 +11,96 @@
         android:id="@+id/profile_image"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:src="@drawable/profile_image"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="15dp"
-        android:layout_marginStart="10dp"/>
+        android:src="@drawable/profile_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/greet_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/profile_image"
-        android:text="Good Morning"
         android:layout_marginLeft="10dp"
-        app:layout_constraintTop_toTopOf="@+id/profile_image"/>
+        android:text="Good Morning"
+        app:layout_constraintStart_toEndOf="@+id/profile_image"
+        app:layout_constraintTop_toTopOf="@+id/profile_image" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Abhas"
-        android:textStyle="bold"
-        android:textSize="15sp"
         android:layout_marginLeft="10dp"
+        android:text="Abhas"
+        android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/profile_image"
-        app:layout_constraintTop_toBottomOf="@+id/greet_text"/>
+        app:layout_constraintTop_toBottomOf="@+id/greet_text" />
 
     <ImageView
         android:id="@+id/notification_icon"
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:src="@drawable/ic_notification"
-        app:layout_constraintTop_toTopOf="@+id/greet_text"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/greet_text"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="@+id/greet_text" />
 
     <ImageView
         android:id="@+id/heart_icon"
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:src="@drawable/ic_heart"
-        app:layout_constraintTop_toTopOf="@+id/greet_text"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/notification_icon"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="@+id/greet_text" />
 
     <ImageView
         android:id="@+id/search_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:src="@drawable/search_layout"
+        android:layout_marginTop="30dp"
         android:padding="10dp"
-        app:layout_constraintTop_toBottomOf="@id/profile_image"
+        android:src="@drawable/search_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="30dp"/>
+        app:layout_constraintTop_toBottomOf="@id/profile_image" />
 
     <TextView
         android:id="@+id/special_offer_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/search_view"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="10dp"
         android:text="Special Offer"
+        android:textSize="13sp"
         android:textStyle="bold"
-        android:textSize="18dp"
-        android:layout_marginLeft="10dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_view" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/special_offer_text"
+        android:layout_marginRight="10dp"
         android:text="View more"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="13sp"
         android:textStyle="bold"
-        android:textSize="18dp"
-        android:layout_marginRight="10dp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/special_offer_text" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/offer_card"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:layout_constraintTop_toBottomOf="@id/special_offer_text"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/design_default_color_surface"
+        android:outlineSpotShadowColor="@color/colorPrimary"
+        app:strokeColor="@color/gray"
+        app:strokeWidth="1dp"
         app:cardCornerRadius="20dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="20dp"
-        android:backgroundTint="@color/white">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/special_offer_text">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -139,12 +144,12 @@
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/productoffer_image"
                 android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:scaleType="centerCrop"
+                android:layout_height="120dp"
                 android:layout_marginEnd="10dp"
-                app:layout_constraintStart_toEndOf="@id/offer_description_text"
+                android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/offer_description_text"
                 app:layout_constraintTop_toTopOf="parent"
                 app:shapeAppearanceOverlay="@style/roundedImageView"
                 app:srcCompat="@drawable/pizza" />
@@ -153,6 +158,188 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
+    <TextView
+        android:id="@+id/ic_cloth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:drawableTop="@drawable/ic_cloth_text"
+        android:text="Clothes"
+        app:layout_constraintEnd_toStartOf="@+id/ic_electronics"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/offer_card"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/ic_electronics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:drawableTop="@drawable/ic_electronics_text"
+        android:text="Electronics"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/ic_shoes"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ic_cloth"
+        app:layout_constraintTop_toBottomOf="@id/offer_card" />
+
+    <TextView
+        android:id="@+id/ic_shoes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:drawableTop="@drawable/ic_shoes_text"
+        android:text="Shoes"
+        app:layout_constraintEnd_toStartOf="@+id/ic_furniture"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ic_electronics"
+        app:layout_constraintTop_toBottomOf="@id/offer_card" />
+
+    <TextView
+        android:id="@+id/ic_furniture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:drawableTop="@drawable/ic_furniture_text"
+        android:text="Furnitures"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ic_shoes"
+        app:layout_constraintTop_toBottomOf="@id/offer_card" />
+
+    <TextView
+        android:id="@+id/ic_jewellary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/ic_jewellary_text"
+        android:text="Jewellary"
+        app:layout_constraintStart_toStartOf="@id/ic_cloth"
+        app:layout_constraintTop_toBottomOf="@id/ic_cloth"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/ic_others"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/ic_others_text"
+        android:text="Others"
+        app:layout_constraintStart_toStartOf="@id/ic_electronics"
+        app:layout_constraintTop_toBottomOf="@id/ic_cloth"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        />
+
+    <TextView
+        android:id="@+id/most_popular_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="Most Popular"
+        android:layout_marginTop="20dp"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ic_jewellary" />
+
+    <TextView
+        android:id="@+id/see_all_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:text="See All"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/most_popular_text" />
+
+    <HorizontalScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/most_popular_text"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/popular_cloth"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Clothes"
+                android:layout_marginStart="20dp"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:paddingBottom="5dp"
+                android:textSize="16sp"
+                android:background="@drawable/rounded_border_rectangle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/popular_shoes"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Shoes"
+                android:layout_marginStart="20dp"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:paddingBottom="5dp"
+                android:textSize="16sp"
+                android:background="@drawable/rounded_border_rectangle"
+                app:layout_constraintStart_toEndOf="@id/popular_cloth"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/popular_jewellary"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Jewellary"
+                android:layout_marginStart="20dp"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:paddingBottom="5dp"
+                android:textSize="16sp"
+                android:background="@drawable/rounded_border_rectangle"
+                app:layout_constraintStart_toEndOf="@id/popular_shoes"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/popular_furniture"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Furnitures"
+                android:layout_marginStart="20dp"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:paddingBottom="5dp"
+                android:textSize="16sp"
+                android:background="@drawable/rounded_border_rectangle"
+                app:layout_constraintStart_toEndOf="@id/popular_jewellary"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/popular_electronics"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Electronics"
+                android:layout_marginStart="20dp"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:paddingBottom="5dp"
+                android:textSize="16sp"
+                android:background="@drawable/rounded_border_rectangle"
+                app:layout_constraintStart_toEndOf="@id/popular_furniture"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </HorizontalScrollView>
 
 
 
