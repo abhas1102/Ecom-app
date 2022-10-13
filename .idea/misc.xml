@@ -3,8 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/EcomApp/app/src/main/res/drawable-v24/filled_round_green_circle.xml" value="0.111" />
+        <entry key="..\:/EcomApp/app/src/main/res/drawable-v24/filled_round_purple_circle.xml" value="0.111" />
+        <entry key="..\:/EcomApp/app/src/main/res/drawable-v24/filled_round_red_circle.xml" value="0.111" />
+        <entry key="..\:/EcomApp/app/src/main/res/drawable-v24/filled_round_skyblue_circle.xml" value="0.111" />
+        <entry key="..\:/EcomApp/app/src/main/res/drawable-v24/filled_round_white_low_stroke_circle.xml" value="0.111" />
         <entry key="..\:/EcomApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/EcomApp/app/src/main/res/drawable/circular.xml" value="0.111" />
+        <entry key="..\:/EcomApp/app/src/main/res/drawable/filled_round_white_circle.xml" value="0.111" />
         <entry key="..\:/EcomApp/app/src/main/res/drawable/gray_rectangle.xml" value="0.111" />
         <entry key="..\:/EcomApp/app/src/main/res/drawable/ic_cloth_text.xml" value="0.111" />
         <entry key="..\:/EcomApp/app/src/main/res/drawable/ic_electronics_text.xml" value="0.111" />
@@ -16,16 +22,20 @@
         <entry key="..\:/EcomApp/app/src/main/res/drawable/ic_notification.xml" value="0.111" />
         <entry key="..\:/EcomApp/app/src/main/res/drawable/ic_others_text.xml" value="0.111" />
         <entry key="..\:/EcomApp/app/src/main/res/drawable/ic_shoes_text.xml" value="0.111" />
+        <entry key="..\:/EcomApp/app/src/main/res/drawable/ic_shopping_cart.xml" value="0.111" />
         <entry key="..\:/EcomApp/app/src/main/res/drawable/ic_splashlogo.xml" value="0.1" />
         <entry key="..\:/EcomApp/app/src/main/res/drawable/ic_splashscreen.xml" value="0.111" />
+        <entry key="..\:/EcomApp/app/src/main/res/drawable/loading_animation.xml" value="0.111" />
         <entry key="..\:/EcomApp/app/src/main/res/drawable/profile_image.xml" value="0.111" />
         <entry key="..\:/EcomApp/app/src/main/res/drawable/rectanglestroke.xml" value="0.111" />
         <entry key="..\:/EcomApp/app/src/main/res/drawable/rectangular_border.xml" value="0.111" />
         <entry key="..\:/EcomApp/app/src/main/res/drawable/rounded_border_rectangle.xml" value="0.111" />
+        <entry key="..\:/EcomApp/app/src/main/res/drawable/rounded_corner.xml" value="0.111" />
         <entry key="..\:/EcomApp/app/src/main/res/drawable/search_layout.xml" value="0.111" />
         <entry key="..\:/EcomApp/app/src/main/res/layout/activity_main.xml" value="0.1403985507246377" />
         <entry key="..\:/EcomApp/app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="..\:/EcomApp/app/src/main/res/layout/fragment_home.xml" value="0.1403985507246377" />
+        <entry key="..\:/EcomApp/app/src/main/res/layout/fragment_product_detail.xml" value="0.1" />
         <entry key="..\:/EcomApp/app/src/main/res/layout/item_layout.xml" value="0.1403985507246377" />
         <entry key="..\:/EcomApp/app/src/main/res/layout/splash_screen.xml" value="0.10587431693989072" />
         <entry key="..\:/EcomApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.15" />
