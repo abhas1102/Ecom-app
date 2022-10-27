@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
@@ -44,12 +45,13 @@ class HomeFragment : Fragment() {
 
         val clickListener = object: ClickListener{
             override fun onClick(itemProduct: ProductDataModel) {
-                val productDetailFragment = ProductDetailFragment()
+                val productDetailFragment = ProductDetailFragment().apply {
+                    arguments = bundleOf(Pair("product",itemProduct))
+                }
                 val ft : FragmentTransaction = fragmentManager!!.beginTransaction()
                 ft.replace(R.id.flFragment, productDetailFragment,"PRODUCT_DETAIL_FRAGMENT")
                 ft.addToBackStack(null)
                 ft.commit()
-
 
             }
 

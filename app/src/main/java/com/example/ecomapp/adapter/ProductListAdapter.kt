@@ -35,7 +35,7 @@ class ProductListAdapter(val productList: List<ProductDataModel>, val clickListe
 
 
         holder.binding.productImage.setOnClickListener {
-            Log.d("click listener","click is performing")
+            Log.d("click listener",productList.get(position).title)
             clickListener.onClick(itemProduct = productList.get(position))
         }
     }
