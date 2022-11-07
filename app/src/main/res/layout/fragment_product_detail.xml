@@ -9,10 +9,20 @@
             type="com.example.ecomapp.model.ProductDataModel" />
     </data>
 
+
 <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/detail_fragment"
     tools:context=".view.ProductDetailFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/fragment_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
         android:id="@+id/frame_layout_detail"
@@ -303,6 +313,7 @@ Womes Casual Wear tops Manufacture As specially"
         android:textStyle="bold"/>
 
     <Button
+        android:id="@+id/add_cart_button"
         android:layout_width="250dp"
         android:layout_height="58dp"
         android:drawableLeft="@drawable/ic_shopping_cart"

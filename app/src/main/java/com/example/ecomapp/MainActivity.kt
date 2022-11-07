@@ -18,7 +18,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class MainActivity : AppCompatActivity() {
     private val viewModel:MainViewModel by viewModels()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen().apply {
@@ -32,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         //Starting the fragment transaction from SupportFragmentManager class
         val ft : FragmentTransaction = supportFragmentManager.beginTransaction()
-        ft.replace(R.id.flFragment, homeFragment,"HOME_FRAGMENT")
+        ft.add(R.id.flFragment, homeFragment,"HOME_FRAGMENT")
         ft.commit()
 
        /* val productDetailFragment:ProductDetailFragment =  supportFragmentManager?.findFragmentByTag("PRODUCT_DETAIL_FRAGMENT") as ProductDetailFragment

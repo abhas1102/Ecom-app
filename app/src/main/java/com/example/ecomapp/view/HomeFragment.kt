@@ -52,7 +52,6 @@ class HomeFragment : Fragment() {
                 ft.replace(R.id.flFragment, productDetailFragment,"PRODUCT_DETAIL_FRAGMENT")
                 ft.addToBackStack(null)
                 ft.commit()
-
             }
 
         }
