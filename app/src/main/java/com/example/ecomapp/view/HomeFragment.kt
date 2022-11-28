@@ -6,10 +6,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.ecomapp.R
 import com.example.ecomapp.adapter.ProductListAdapter
@@ -17,16 +19,15 @@ import com.example.ecomapp.clicklistener.ClickListener
 import com.example.ecomapp.databinding.FragmentHomeBinding
 import com.example.ecomapp.model.ProductDataModel
 import com.example.ecomapp.viewmodel.HomeFragmentViewModel
+import com.example.ecomapp.viewmodel.MainViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class HomeFragment : Fragment() {
 
     lateinit var binding: FragmentHomeBinding
-    private val viewModel: HomeFragmentViewModel by lazy {
-        ViewModelProvider(this).get(HomeFragmentViewModel::class.java)
+    private val viewModel: MainViewModel by activityViewModels()
 
-    }
 
 
     override fun onCreateView(
@@ -40,7 +41,6 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
         val clickListener = object: ClickListener{
@@ -69,11 +69,18 @@ class HomeFragment : Fragment() {
         super.onResume()
         (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
 
+
     }
 
     override fun onStop() {
         super.onStop()
         (activity as AppCompatActivity?)!!.supportActionBar!!.show()
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Toast.makeText(activity,"onDestroyHomeFrag",Toast.LENGTH_SHORT).show()
+    }
+
 
 }

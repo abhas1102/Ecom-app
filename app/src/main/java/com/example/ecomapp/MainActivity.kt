@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.os.PersistableBundle
 import android.view.View
 import android.window.SplashScreen
 import androidx.activity.viewModels
@@ -17,6 +18,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
     private val viewModel:MainViewModel by viewModels()
+    var productDetailFragment = ProductDetailFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         //Starting the fragment transaction from SupportFragmentManager class
         val ft : FragmentTransaction = supportFragmentManager.beginTransaction()
         ft.add(R.id.flFragment, homeFragment,"HOME_FRAGMENT")
+        ft.addToBackStack(null)
         ft.commit()
 
        /* val productDetailFragment:ProductDetailFragment =  supportFragmentManager?.findFragmentByTag("PRODUCT_DETAIL_FRAGMENT") as ProductDetailFragment
@@ -41,5 +44,14 @@ class MainActivity : AppCompatActivity() {
         } */
 
 
+    }
+
+    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
+        super.onSaveInstanceState(outState, outPersistentState)
+        supportFragmentManager.putFragment(outState,"productDetailFragment", productDetailFragment)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        productDetailFragment = supportFragmentManager.getFragment(savedInstanceState,"productDetailFragment") as ProductDetailFragment
     }
 }

@@ -307,7 +307,6 @@ Womes Casual Wear tops Manufacture As specially"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/total_price_text"
         app:layout_constraintStart_toStartOf="@id/total_price_text"
-        android:text="@{String.valueOf(productDetails1.price)}"
         android:textSize="24sp"
         android:textColor="@color/black"
         android:textStyle="bold"/>
