@@ -3,6 +3,7 @@ package com.example.ecomapp.view
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -47,6 +48,7 @@ class HomeFragment : Fragment() {
             override fun onClick(itemProduct: ProductDataModel) {
                 val productDetailFragment = ProductDetailFragment().apply {
                     arguments = bundleOf(Pair("product",itemProduct))
+                    viewModel.quantityValue = 0
                 }
                 val ft : FragmentTransaction = fragmentManager!!.beginTransaction()
                 ft.replace(R.id.flFragment, productDetailFragment,"PRODUCT_DETAIL_FRAGMENT")
@@ -58,8 +60,8 @@ class HomeFragment : Fragment() {
 
         viewModel.products.observe(viewLifecycleOwner){
             if (it.size>0){
-                //Log.d("HomeFragment",it.get(0).title)
-                //Log.d("HomeFragment", it.get(0).image)
+                Log.d("HomeFragment",it.get(0).title)
+               // Log.d("HomeFragment", it.get(0).image)
                 binding.productRecyclerView.adapter = ProductListAdapter(it,clickListener)
             }
         }

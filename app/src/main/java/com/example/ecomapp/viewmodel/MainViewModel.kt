@@ -27,6 +27,16 @@ class MainViewModel: ViewModel(){
     private var quantity_value = 0
     var quantityValue = quantity_value
 
+    private var updated_quantity_value = 0
+    var updatedQuantityValue = 0
+
+    private var list_ids = arrayListOf<Int>()
+    var listIds = list_ids
+
+    private var map_id_quantity = mutableMapOf<Int,Int>()
+    var mapIdQuantity = map_id_quantity
+
+
 
     init {
         viewModelScope.launch {

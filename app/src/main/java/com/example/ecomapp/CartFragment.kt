@@ -8,10 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
+import com.example.ecomapp.viewmodel.MainViewModel
 import org.w3c.dom.Text
 
 class CartFragment : Fragment() {
-
+   private val viewModelForCart : MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,7 +23,10 @@ class CartFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_cart, container, false)
         val quantityText: String? = arguments?.getString("quantity_text")
         val quantityCart:TextView = view.findViewById(R.id.quantity_text)
-        quantityCart.text = quantityText.toString()
+       // quantityCart.text = quantityText.toString()
+        quantityCart.text = viewModelForCart.quantityValue.toString()
+
+
         return view
     }
 

@@ -8,6 +8,7 @@ import kotlinx.parcelize.Parcelize
 data class ProductDataModel(@SerializedName("title") val title:String,
                            @SerializedName("description") val description: String,
                             @SerializedName("image") val image:String,
+                            @SerializedName("id") val id:Int,
                             @SerializedName("price") val price:Float):Parcelable
 
 
