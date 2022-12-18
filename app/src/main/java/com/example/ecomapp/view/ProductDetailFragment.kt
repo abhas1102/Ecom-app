@@ -14,6 +14,7 @@ import androidx.fragment.app.*
 import com.example.ecomapp.CartFragment
 import com.example.ecomapp.R
 import com.example.ecomapp.databinding.FragmentProductDetailBinding
+import com.example.ecomapp.model.CartProductDataModel
 import com.example.ecomapp.viewmodel.MainViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.*
@@ -25,6 +26,7 @@ class ProductDetailFragment : Fragment() {
 
     //var quantityValue = 0
     private val viewmodel:MainViewModel by activityViewModels()
+    var cartProductList = ArrayList<CartProductDataModel>()
 
 
     override fun onCreateView(
@@ -171,10 +173,16 @@ class ProductDetailFragment : Fragment() {
           } */
 
         binding.continueButton.setOnClickListener{
-            val bundle = Bundle()
-            bundle.putString("quantity_text", String.format("%d",viewmodel.quantityValue))
+            cartProductList.add(CartProductDataModel(viewmodel.updatedQuantityValue,productDetail.title))
+           // val bundle = Bundle()
+           // bundle.putString("quantity_text", String.format("%d",viewmodel.updatedQuantityValue))
+          //  bundle.putInt("product_id", viewmodel.mapIdQuantity.entries.find { it.value == viewmodel.updatedQuantityValue }!!.key)
+
+
             val cartFragment = CartFragment()
-            cartFragment.arguments = bundle
+           // cartFragment.arguments = bundle
+          //  cartFragment.arguments = bundleOf(Pair("cartProductDetail",cartProductList))
+
 
 
             val ft = fragmentManager?.beginTransaction()
