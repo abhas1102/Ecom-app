@@ -31,6 +31,7 @@ class CartFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentCartBinding.inflate(inflater,container,false)
+
       //  val quantityText: String? = arguments?.getString("quantity_text")
        // val keysText = arguments?.getInt("product_id")
       //  Log.d("keystext",keysText.toString())
@@ -45,6 +46,7 @@ class CartFragment : Fragment() {
 
 
         return binding.root
+
     }
 
 
@@ -52,8 +54,20 @@ class CartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
        // binding.cartProductDetail = arguments?.getParcelable("cartProductDetail")
        // var value = viewModelForCart.mapIdQuantity.values
+       // val productId = arguments?.getInt("product_id")
         var cartProductList = arrayListOf<CartProductDataModel>()
-        for (i in viewModelForCart.mapIdQuantity.values) cartProductList.add(CartProductDataModel(i,"abcd"))
+
+       // val priceProduct = arguments?.getFloat("product_price")
+
+
+        //Adding values saved in viewmodel map in cartProductList so that all adapter can fetch values one by one from list
+        for (i in viewModelForCart.mapIdQuantity.values)  cartProductList.add(CartProductDataModel(i.first,"abcd",(i.first * i.second)))
+
+
+
+
+
+
 
         Log.d("cartArray", cartProductList.toString())
         binding.lifecycleOwner = viewLifecycleOwner

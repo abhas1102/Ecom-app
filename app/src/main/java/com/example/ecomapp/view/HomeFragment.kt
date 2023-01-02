@@ -18,6 +18,7 @@ import com.example.ecomapp.R
 import com.example.ecomapp.adapter.ProductListAdapter
 import com.example.ecomapp.clicklistener.ClickListener
 import com.example.ecomapp.databinding.FragmentHomeBinding
+import com.example.ecomapp.model.CartProductDataModel
 import com.example.ecomapp.model.ProductDataModel
 import com.example.ecomapp.viewmodel.HomeFragmentViewModel
 import com.example.ecomapp.viewmodel.MainViewModel
@@ -56,6 +57,10 @@ class HomeFragment : Fragment() {
                 ft.commit()
             }
 
+            override fun onUpdate(cartItemProduct: CartProductDataModel) {
+                TODO("Not yet implemented")
+            }
+
         }
 
         viewModel.products.observe(viewLifecycleOwner){
@@ -65,6 +70,8 @@ class HomeFragment : Fragment() {
                 binding.productRecyclerView.adapter = ProductListAdapter(it,clickListener)
             }
         }
+
+
     }
 
     override fun onResume() {

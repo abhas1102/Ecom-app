@@ -11,6 +11,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import org.w3c.dom.ls.LSException
 
 class MainViewModel: ViewModel(){
 
@@ -30,10 +31,18 @@ class MainViewModel: ViewModel(){
     private var updated_quantity_value = 0
     var updatedQuantityValue = 0
 
+    private var price_product = 0
+    var priceProduct = 0
+
+    private var updated_price_product = 0
+    var updatedPriceProduct = 0
+
     private var list_ids = arrayListOf<Int>()
     var listIds = list_ids
 
-    private var map_id_quantity = mutableMapOf<Int,Int>()
+   // private var map_id_quantity = mutableMapOf<Int,Int>()
+    private var map_id_quantity = mutableMapOf<Int,Pair<Int,Float>>()
+
     var mapIdQuantity = map_id_quantity
 
 

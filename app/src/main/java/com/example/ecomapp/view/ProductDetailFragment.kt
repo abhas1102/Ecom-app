@@ -75,7 +75,7 @@ class ProductDetailFragment : Fragment() {
                } */
         if (productDetail!!.id in viewmodel.mapIdQuantity.keys) {
             // val value = viewmodel.mapIdQuantity.filterValues { it == productDetail.id }.keys
-            var valueOfId = viewmodel.mapIdQuantity.getValue(productDetail.id)
+            var valueOfId = viewmodel.mapIdQuantity.getValue(productDetail.id).first
             Log.d("value of id", valueOfId.toString())
             viewmodel.updatedQuantityValue = valueOfId
 
@@ -91,7 +91,8 @@ class ProductDetailFragment : Fragment() {
                 binding.quantityText.text = viewmodel.updatedQuantityValue.toString()
                 viewmodel.mapIdQuantity.put(
                     productDetail.id,
-                    viewmodel.updatedQuantityValue
+                  //  viewmodel.updatedQuantityValue
+                Pair(viewmodel.updatedQuantityValue,productDetail.price)
                 )
                 Log.d(
                     "map id quantity",
@@ -107,7 +108,8 @@ class ProductDetailFragment : Fragment() {
                binding.quantityText.text = viewmodel.updatedQuantityValue.toString()
                viewmodel.mapIdQuantity.put(
                    productDetail.id,
-                   viewmodel.updatedQuantityValue
+                  // viewmodel.updatedQuantityValue
+               Pair(viewmodel.updatedQuantityValue,productDetail.price)
                )
            }
         }
@@ -125,7 +127,8 @@ class ProductDetailFragment : Fragment() {
                 binding.quantityText.text = viewmodel.updatedQuantityValue.toString()
                 viewmodel.mapIdQuantity.put(
                     productDetail.id,
-                    viewmodel.updatedQuantityValue
+                   // viewmodel.updatedQuantityValue
+                Pair(viewmodel.updatedQuantityValue,productDetail.price)
                 )
                 Log.d(
                     "map id quantity",
@@ -143,7 +146,8 @@ class ProductDetailFragment : Fragment() {
                     binding.quantityText.text = viewmodel.updatedQuantityValue.toString()
                     viewmodel.mapIdQuantity.put(
                         productDetail.id,
-                        viewmodel.updatedQuantityValue
+                      //  viewmodel.updatedQuantityValue
+                    Pair(viewmodel.updatedQuantityValue,productDetail.price)
                     )
                 }
 
@@ -173,14 +177,15 @@ class ProductDetailFragment : Fragment() {
           } */
 
         binding.continueButton.setOnClickListener{
-            cartProductList.add(CartProductDataModel(viewmodel.updatedQuantityValue,productDetail.title))
-           // val bundle = Bundle()
-           // bundle.putString("quantity_text", String.format("%d",viewmodel.updatedQuantityValue))
+          //  cartProductList.add(CartProductDataModel(viewmodel.updatedQuantityValue,productDetail.title))
+            val bundle = Bundle()
+          //  bundle.putInt("product_id", productDetail.id)
+          //  bundle.putFloat("product_price", productDetail.price)
           //  bundle.putInt("product_id", viewmodel.mapIdQuantity.entries.find { it.value == viewmodel.updatedQuantityValue }!!.key)
 
 
             val cartFragment = CartFragment()
-           // cartFragment.arguments = bundle
+            cartFragment.arguments = bundle
           //  cartFragment.arguments = bundleOf(Pair("cartProductDetail",cartProductList))
 
 
