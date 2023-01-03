@@ -17,8 +17,8 @@ class MainViewModel: ViewModel(){
 
     private val repository = Repository()
 
-    private val _products = MutableLiveData<List<ProductDataModel>>()
-    val products:LiveData<List<ProductDataModel>> = _products
+    private val _products = MutableLiveData<ArrayList<ProductDataModel>>()
+    val products:LiveData<ArrayList<ProductDataModel>> = _products
 
 
 
@@ -68,7 +68,7 @@ class MainViewModel: ViewModel(){
    private fun getProducts() {
        viewModelScope.launch {
            val data = repository.getProducts()
-           _products.postValue(data)
+           _products.postValue(data as ArrayList)
        }
    }
 

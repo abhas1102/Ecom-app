@@ -15,7 +15,7 @@ import com.example.ecomapp.databinding.ItemLayoutBinding
 import com.example.ecomapp.model.ProductDataModel
 import com.google.android.material.imageview.ShapeableImageView
 
-class ProductListAdapter(val productList: List<ProductDataModel>, val clickListener:ClickListener):RecyclerView.Adapter<ProductListAdapter.ViewHolder>() {
+class ProductListAdapter(val productList: ArrayList<ProductDataModel>, val clickListener:ClickListener):RecyclerView.Adapter<ProductListAdapter.ViewHolder>() {
     class ViewHolder(val binding: ItemLayoutBinding):RecyclerView.ViewHolder(binding.root) {
 
 

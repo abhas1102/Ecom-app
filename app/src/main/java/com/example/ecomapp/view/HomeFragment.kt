@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
@@ -64,11 +65,49 @@ class HomeFragment : Fragment() {
         }
 
         viewModel.products.observe(viewLifecycleOwner){
+           // var adapter = ProductListAdapter(it,clickListener)
+            var matchedItem : ArrayList<ProductDataModel> = arrayListOf()
             if (it.size>0){
                 Log.d("HomeFragment",it.get(0).title)
                // Log.d("HomeFragment", it.get(0).image)
                 binding.productRecyclerView.adapter = ProductListAdapter(it,clickListener)
+
             }
+
+            binding.searchView.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                  //  var listOfTitles = arrayListOf<String>()
+                    it.forEach { item ->
+                        if (item.title.contains(query!!)) {
+                            matchedItem.add(item)
+                        }
+                    }
+                    if (matchedItem.isEmpty()) {
+                        Toast.makeText(activity,"No match found",Toast.LENGTH_SHORT).show()
+                    } else{
+                        binding.productRecyclerView.adapter = ProductListAdapter(matchedItem,clickListener)
+                    }
+
+                  //  for (i in 0..it.size-1) listOfTitles.add(it[i].title)
+                   // Log.d("ListTitles", listOfTitles.toString())
+                   /* for (i in it) {
+                        if (i.title.contains(query!!)) {
+                            newIt.add(i)
+                            binding.productRecyclerView.adapter = ProductListAdapter(newIt,clickListener)
+                        } else {
+                            Toast.makeText(activity,"no search found", Toast.LENGTH_SHORT).show()
+                        }
+                    } */
+
+                    return false
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+
+                    return  false
+                }
+
+            })
         }
 
 

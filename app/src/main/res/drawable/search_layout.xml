@@ -4,14 +4,16 @@
     <item android:drawable="@drawable/rectanglestroke"
         android:width="500dp"
         android:height="60dp"
+        android:left="10dp"
+        android:right="10dp"
         />
 
-    <item android:drawable="@drawable/ic_search"
+   <!-- <item android:drawable="@drawable/ic_search"
         android:width="30dp"
         android:height="40dp"
         android:top="10dp"
         android:left="10dp"
-        />
+        /> -->
 
 
 </layer-list>
