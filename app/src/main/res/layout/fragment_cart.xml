@@ -48,6 +48,27 @@
         tools:listitem="@layout/cart_item_layout"
         android:layout_marginStart="10dp"/>
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDownloadPdf"
+            android:layout_width="0dp"
+            android:layout_height="68dp"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            app:cornerRadius="20dp"
+            android:textAllCaps="true"
+            app:backgroundTint="@color/colorPrimary"
+            app:icon="@drawable/ic_forward"
+            app:iconGravity="textStart"
+            app:iconPadding="10dp"
+            app:iconTint="#fff"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Continue to Checkout" />
+
+
+
+
 
 
 
