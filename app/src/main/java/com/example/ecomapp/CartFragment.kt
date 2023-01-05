@@ -17,6 +17,7 @@ import com.example.ecomapp.databinding.FragmentHomeBinding
 import com.example.ecomapp.model.CartProductDataModel
 import com.example.ecomapp.model.ProductDataModel
 import com.example.ecomapp.utils.bindImage
+import com.example.ecomapp.view.PlaceOrderFragment
 import com.example.ecomapp.viewmodel.MainViewModel
 import org.w3c.dom.Text
 
@@ -63,12 +64,6 @@ class CartFragment : Fragment() {
         //Adding values saved in viewmodel map in cartProductList so that all adapter can fetch values one by one from list
         for (i in viewModelForCart.mapIdQuantity.values)  cartProductList.add(CartProductDataModel(i.first,"abcd",(i.first * i.second)))
 
-
-
-
-
-
-
         Log.d("cartArray", cartProductList.toString())
         binding.lifecycleOwner = viewLifecycleOwner
         binding.cartRecyclerView.adapter = CartAdapter(cartProductList)
@@ -82,6 +77,22 @@ class CartFragment : Fragment() {
             override fun onClick(itemProduct: ProductDataModel) {
                 TODO("Not yet implemented")
             }
+        }
+        binding.btnContinueCheckout.setOnClickListener {
+            var totalPriceOfItemsInCart = 0.0
+            for (i in 0..cartProductList.size-1) totalPriceOfItemsInCart+=cartProductList[i].price
+
+            val bundle = Bundle()
+            bundle.putInt("total_item_in_cart", cartProductList.size)
+            bundle.putDouble("total_price_of_item_in_cart", totalPriceOfItemsInCart)
+
+            val fragmentPlaceOrder = PlaceOrderFragment()
+            fragmentPlaceOrder.arguments = bundle // arguments attached with bundle
+            val fragmentTransaction = fragmentManager?.beginTransaction()
+            fragmentTransaction?.replace(R.id.flFragment, fragmentPlaceOrder)
+            fragmentTransaction?.addToBackStack("")
+            fragmentTransaction?.commit()
+
         }
 
 
