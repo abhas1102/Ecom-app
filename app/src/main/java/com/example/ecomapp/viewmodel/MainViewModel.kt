@@ -41,7 +41,8 @@ class MainViewModel: ViewModel(){
     var listIds = list_ids
 
    // private var map_id_quantity = mutableMapOf<Int,Int>()
-    private var map_id_quantity = mutableMapOf<Int,Pair<Int,Float>>()
+  //  private var map_id_quantity = mutableMapOf<Int,Pair<Int,Float>>()
+    private var map_id_quantity = mutableMapOf<Int,Triple<Int,Float,String>>()
 
     var mapIdQuantity = map_id_quantity
 

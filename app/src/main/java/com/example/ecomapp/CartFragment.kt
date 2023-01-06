@@ -62,7 +62,7 @@ class CartFragment : Fragment() {
 
 
         //Adding values saved in viewmodel map in cartProductList so that all adapter can fetch values one by one from list
-        for (i in viewModelForCart.mapIdQuantity.values)  cartProductList.add(CartProductDataModel(i.first,"abcd",(i.first * i.second)))
+        for (i in viewModelForCart.mapIdQuantity.values)  cartProductList.add(CartProductDataModel(i.first,i.third,(i.first * i.second)))
 
         Log.d("cartArray", cartProductList.toString())
         binding.lifecycleOwner = viewLifecycleOwner

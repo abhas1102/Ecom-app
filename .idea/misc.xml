@@ -42,10 +42,12 @@
         <entry key="..\:/EcomApp/app/src/main/res/layout/cart_item_layout.xml" value="0.1" />
         <entry key="..\:/EcomApp/app/src/main/res/layout/fragment_cart.xml" value="0.19895833333333332" />
         <entry key="..\:/EcomApp/app/src/main/res/layout/fragment_home.xml" value="0.1403985507246377" />
+        <entry key="..\:/EcomApp/app/src/main/res/layout/fragment_my_orders.xml" value="0.1" />
         <entry key="..\:/EcomApp/app/src/main/res/layout/fragment_place_order.xml" value="0.1" />
         <entry key="..\:/EcomApp/app/src/main/res/layout/fragment_product_detail.xml" value="0.1" />
         <entry key="..\:/EcomApp/app/src/main/res/layout/item_layout.xml" value="0.1403985507246377" />
         <entry key="..\:/EcomApp/app/src/main/res/layout/list_states.xml" value="0.19791666666666666" />
+        <entry key="..\:/EcomApp/app/src/main/res/layout/myorder_item_layout.xml" value="0.1" />
         <entry key="..\:/EcomApp/app/src/main/res/layout/splash_screen.xml" value="0.10587431693989072" />
         <entry key="..\:/EcomApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.15" />
         <entry key="..\:/EcomApp/app/src/main/res/menu/list_states.xml" value="0.19791666666666666" />

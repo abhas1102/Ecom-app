@@ -154,6 +154,7 @@
         app:layout_constraintStart_toStartOf="@id/text_fill_address">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/text_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Enter name"
@@ -278,6 +279,16 @@
             android:inputType="none"/>
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnConfirmOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Confirm Your Order"
+        app:layout_constraintTop_toBottomOf="@id/address_input_state"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"/>
+
 
 
 

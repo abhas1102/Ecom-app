@@ -92,7 +92,7 @@ class ProductDetailFragment : Fragment() {
                 viewmodel.mapIdQuantity.put(
                     productDetail.id,
                   //  viewmodel.updatedQuantityValue
-                Pair(viewmodel.updatedQuantityValue,productDetail.price)
+                Triple(viewmodel.updatedQuantityValue,productDetail.price,productDetail.title)
                 )
                 Log.d(
                     "map id quantity",
@@ -109,7 +109,7 @@ class ProductDetailFragment : Fragment() {
                viewmodel.mapIdQuantity.put(
                    productDetail.id,
                   // viewmodel.updatedQuantityValue
-               Pair(viewmodel.updatedQuantityValue,productDetail.price)
+               Triple(viewmodel.updatedQuantityValue,productDetail.price,productDetail.title)
                )
            }
         }
@@ -128,7 +128,7 @@ class ProductDetailFragment : Fragment() {
                 viewmodel.mapIdQuantity.put(
                     productDetail.id,
                    // viewmodel.updatedQuantityValue
-                Pair(viewmodel.updatedQuantityValue,productDetail.price)
+                    Triple(viewmodel.updatedQuantityValue,productDetail.price,productDetail.title)
                 )
                 Log.d(
                     "map id quantity",
@@ -147,7 +147,7 @@ class ProductDetailFragment : Fragment() {
                     viewmodel.mapIdQuantity.put(
                         productDetail.id,
                       //  viewmodel.updatedQuantityValue
-                    Pair(viewmodel.updatedQuantityValue,productDetail.price)
+                    Triple(viewmodel.updatedQuantityValue,productDetail.price,productDetail.title)
                     )
                 }
 
