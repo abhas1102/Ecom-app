@@ -8,7 +8,7 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.card.MaterialCardView
@@ -26,6 +26,7 @@
                 android:id="@+id/textDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{myOrdersProductDetail.otherDetails.orderedDate.toString()}"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
 
@@ -33,6 +34,7 @@
                 android:id="@+id/textTitle"
                 android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
+                android:text="@{myOrdersProductDetail.title}"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/textDate"
                 app:layout_constraintStart_toStartOf="parent"/>
@@ -41,6 +43,7 @@
                 android:id="@+id/textQty"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+               android:text="@{String.valueOf(myOrdersProductDetail.quantity)}"
                 app:layout_constraintTop_toBottomOf="@id/textTitle"
                 app:layout_constraintStart_toStartOf="parent"/>
 
@@ -48,12 +51,15 @@
                 android:id="@+id/textState"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{myOrdersProductDetail.otherDetails.state.toString()}"
+
                 app:layout_constraintTop_toBottomOf="@id/textQty"
                 app:layout_constraintStart_toStartOf="parent"/>
             <TextView
                 android:id="@+id/textPin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{myOrdersProductDetail.otherDetails.pinCode.toString()}"
                 app:layout_constraintTop_toTopOf="@id/textState"
                 app:layout_constraintStart_toEndOf="@id/textState"
                 android:layout_margin="10dp"/>

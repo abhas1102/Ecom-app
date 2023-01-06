@@ -6,6 +6,7 @@ data class MyOrderProductDataModel(
     val otherDetails: OtherDetailsModel
 )
 data class OtherDetailsModel(
-    val orderedDate:String,
-    val address: Pair<String,Int>
+    val orderedDate: String?,
+    val state: String,
+    val pinCode: String
     )
