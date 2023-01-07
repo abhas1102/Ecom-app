@@ -43,6 +43,7 @@ class MainViewModel: ViewModel(){
    // private var map_id_quantity = mutableMapOf<Int,Int>()
   //  private var map_id_quantity = mutableMapOf<Int,Pair<Int,Float>>()
     private var map_id_quantity = mutableMapOf<Int,Triple<Int,Float,String>>()
+  // private var map_id_quantity = mutableMapOf<Int,ProductDataModel>() -> This can be done to fetch more details about product
 
     var mapIdQuantity = map_id_quantity
 

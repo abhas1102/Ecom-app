@@ -19,6 +19,7 @@ import com.example.ecomapp.model.ProductDataModel
 import com.example.ecomapp.utils.bindImage
 import com.example.ecomapp.view.PlaceOrderFragment
 import com.example.ecomapp.viewmodel.MainViewModel
+import com.google.android.material.textview.MaterialTextView
 import org.w3c.dom.Text
 
 class CartFragment : Fragment() {
@@ -63,10 +64,17 @@ class CartFragment : Fragment() {
 
         //Adding values saved in viewmodel map in cartProductList so that all adapter can fetch values one by one from list
         for (i in viewModelForCart.mapIdQuantity.values)  cartProductList.add(CartProductDataModel(i.first,i.third,(i.first * i.second)))
+       /* val inflater = LayoutInflater.from(context)
+        val view = inflater.inflate(R.layout.cart_item_layout, null)
+        val totalPriceText = view.findViewById<TextView>(R.id.total_price_text).text
+        val newPriceText = view.findViewById<TextView>(R.id.total_price_text)
+        newPriceText.text = String.format("%.2f", totalPriceText) */
+
 
         Log.d("cartArray", cartProductList.toString())
         binding.lifecycleOwner = viewLifecycleOwner
         binding.cartRecyclerView.adapter = CartAdapter(cartProductList)
+
 
         val itemUpdateListener = object: ClickListener{
             override fun onUpdate(cartItemProduct: CartProductDataModel) {

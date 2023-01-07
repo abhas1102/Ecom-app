@@ -15,43 +15,83 @@
         android:id="@+id/myOrderProductCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:layout_margin="20dp"
+        app:strokeWidth="2dp"
+        app:strokeColor="@color/black"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="10dp">
 
             <TextView
                 android:id="@+id/textDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/green"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 android:text="@{myOrdersProductDetail.otherDetails.orderedDate.toString()}"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
 
             <TextView
-                android:id="@+id/textTitle"
-                android:layout_marginTop="20dp"
+                android:id="@+id/textOrderedItem"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ordered Item:"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/textDate"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/textTitle"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:textColor="@color/gray"
+                android:textStyle="normal"
+                android:textSize="14sp"
                 android:text="@{myOrdersProductDetail.title}"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/textDate"
+                app:layout_constraintTop_toBottomOf="@id/textOrderedItem"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/textQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:text="Qty:"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/textTitle"
                 app:layout_constraintStart_toStartOf="parent"/>
 
             <TextView
                 android:id="@+id/textQty"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="normal"
+                android:paddingLeft="10dp"
+                android:textColor="@color/gray"
                android:text="@{String.valueOf(myOrdersProductDetail.quantity)}"
-                app:layout_constraintTop_toBottomOf="@id/textTitle"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toEndOf="@id/textQuantity"
+                app:layout_constraintTop_toTopOf="@id/textQuantity"/>
 
             <TextView
                 android:id="@+id/textState"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{myOrdersProductDetail.otherDetails.state.toString()}"
+                android:textSize="18sp"
+                android:textStyle="normal"
+                android:textColor="@color/black"
 
                 app:layout_constraintTop_toBottomOf="@id/textQty"
                 app:layout_constraintStart_toStartOf="parent"/>
@@ -59,11 +99,24 @@
                 android:id="@+id/textPin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:textStyle="normal"
                 android:text="@{myOrdersProductDetail.otherDetails.pinCode.toString()}"
                 app:layout_constraintTop_toTopOf="@id/textState"
                 app:layout_constraintStart_toEndOf="@id/textState"
-                android:layout_margin="10dp"/>
+                android:layout_marginStart="10dp"/>
 
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Track Order"
+                android:textSize="8sp"
+                android:layout_marginLeft="10dp"
+                app:icon="@drawable/ic_track"
+                style="@style/Widget.MaterialComponents.Button.Icon"
+                app:layout_constraintTop_toTopOf="@id/textState"
+                app:layout_constraintEnd_toEndOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

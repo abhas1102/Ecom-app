@@ -22,6 +22,7 @@ class CartAdapter(val cartProductList:List<CartProductDataModel>):RecyclerView.A
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(data = cartProductList[position])
+      //  holder.binding.totalPriceText.text = String.format("%.2f", cartProductList[position].price)
        // holder.binding.totalPriceText.text = cartProductList[position].price.toString()
 
     }

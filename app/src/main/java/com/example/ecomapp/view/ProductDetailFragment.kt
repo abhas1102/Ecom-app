@@ -17,6 +17,8 @@ import com.example.ecomapp.databinding.FragmentProductDetailBinding
 import com.example.ecomapp.model.CartProductDataModel
 import com.example.ecomapp.viewmodel.MainViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import java.text.DecimalFormat
+import java.text.DecimalFormatSymbols
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -46,6 +48,7 @@ class ProductDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val navBar:BottomNavigationView = requireActivity().findViewById(R.id.bottomNavigation)
        // navBar.visibility = View.GONE
+       // val df = DecimalFormat("#.#", DecimalFormatSymbols(Locale.ENGLISH))
 
 
         binding.productDetails1 = arguments?.getParcelable("product")

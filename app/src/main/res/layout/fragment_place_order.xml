@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Your Order Details"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textColor="@color/black"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -60,13 +60,13 @@
                 android:text="Total Items Ordered :"
                 android:textStyle="normal"
                 android:textColor="@color/black"
-                android:textSize="20sp"/>
+                android:textSize="13sp"/>
 
             <TextView
                 android:id="@+id/value_total_item_ordered"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginStart="10dp"
                 app:layout_constraintStart_toEndOf="@id/text_total_item_ordered"
                 app:layout_constraintTop_toTopOf="@id/text_total_item_ordered"/>
 
@@ -79,13 +79,13 @@
                 android:text="Total Price :"
                 android:textStyle="normal"
                 android:textColor="@color/black"
-                android:textSize="20sp"/>
+                android:textSize="13sp"/>
 
             <TextView
                 android:id="@+id/value_total_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginStart="10dp"
                 app:layout_constraintStart_toEndOf="@id/text_total_price"
                 app:layout_constraintTop_toTopOf="@id/text_total_price"/>
 
@@ -98,13 +98,13 @@
                 android:text="Tax On Items :"
                 android:textStyle="normal"
                 android:textColor="@color/black"
-                android:textSize="20sp"/>
+                android:textSize="13sp"/>
 
             <TextView
                 android:id="@+id/value_tax_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginStart="10dp"
                 app:layout_constraintStart_toEndOf="@id/text_tax_amount"
                 app:layout_constraintTop_toTopOf="@id/text_tax_amount"/>
 
@@ -118,13 +118,13 @@
                 android:text="Total amount to pay( Inc. of taxes ) :"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                android:textSize="19sp"/>
+                android:textSize="14sp"/>
 
             <TextView
                 android:id="@+id/value_total_amount_to_pay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginStart="10dp"
                 app:layout_constraintStart_toEndOf="@id/text_total_amount_to_pay"
                 app:layout_constraintTop_toTopOf="@id/text_total_amount_to_pay"/>
 
@@ -142,13 +142,17 @@
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/order_detail_card"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="10dp"/>
+        android:layout_margin="15dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/address_input_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_margin="10dp"
+        app:boxStrokeWidth="0.5dp"
+        app:boxStrokeWidthFocused="0.5dp"
+        app:boxStrokeColor="#FFF"
+        app:boxBackgroundColor="#FFF"
 
         app:layout_constraintTop_toBottomOf="@id/text_fill_address"
         app:layout_constraintStart_toStartOf="@id/text_fill_address">
@@ -166,8 +170,11 @@
         android:id="@+id/address_input_mobile_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
+        android:layout_margin="10dp"
+        app:boxStrokeWidth="0.5dp"
+        app:boxStrokeWidthFocused="0.5dp"
+        app:boxStrokeColor="#FFF"
+        app:boxBackgroundColor="#FFF"
         app:layout_constraintTop_toBottomOf="@id/address_input_name"
         app:layout_constraintStart_toStartOf="@id/text_fill_address">
 
@@ -182,8 +189,11 @@
         android:id="@+id/address_input_pin_code"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
+        android:layout_margin="10dp"
+        app:boxStrokeWidth="0.5dp"
+        app:boxStrokeWidthFocused="0.5dp"
+        app:boxStrokeColor="#FFF"
+        app:boxBackgroundColor="#FFF"
         app:layout_constraintTop_toBottomOf="@id/address_input_mobile_number"
         app:layout_constraintStart_toStartOf="@id/text_fill_address">
 
@@ -198,8 +208,11 @@
         android:id="@+id/address_input_detailed_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
+        android:layout_margin="10dp"
+        app:boxStrokeWidth="0.5dp"
+        app:boxStrokeWidthFocused="0.5dp"
+        app:boxStrokeColor="#FFF"
+        app:boxBackgroundColor="#FFF"
         app:layout_constraintTop_toBottomOf="@id/address_input_pin_code"
         app:layout_constraintStart_toStartOf="@id/text_fill_address">
 
@@ -214,8 +227,11 @@
         android:id="@+id/address_input_area_street"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
+        android:layout_margin="10dp"
+        app:boxStrokeWidth="0.5dp"
+        app:boxStrokeWidthFocused="0.5dp"
+        app:boxStrokeColor="#FFF"
+        app:boxBackgroundColor="#FFF"
         app:layout_constraintTop_toBottomOf="@id/address_input_detailed_address"
         app:layout_constraintStart_toStartOf="@id/text_fill_address">
 
@@ -230,8 +246,11 @@
         android:id="@+id/address_input_landmark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
+        android:layout_margin="10dp"
+        app:boxStrokeWidth="0.5dp"
+        app:boxStrokeWidthFocused="0.5dp"
+        app:boxStrokeColor="#FFF"
+        app:boxBackgroundColor="#FFF"
         app:layout_constraintTop_toBottomOf="@id/address_input_area_street"
         app:layout_constraintStart_toStartOf="@id/text_fill_address">
 
@@ -246,8 +265,11 @@
         android:id="@+id/address_input_town_city"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
+        android:layout_margin="10dp"
+        app:boxStrokeWidth="0.5dp"
+        app:boxStrokeWidthFocused="0.5dp"
+        app:boxStrokeColor="#FFF"
+        app:boxBackgroundColor="#FFF"
         app:layout_constraintTop_toBottomOf="@id/address_input_landmark"
         app:layout_constraintStart_toStartOf="@id/text_fill_address">
 
@@ -263,10 +285,11 @@
         android:id="@+id/address_input_state"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="10dp"
+        app:boxStrokeWidth="0.5dp"
+        app:boxStrokeWidthFocused="0.5dp"
+        app:boxStrokeColor="#FFF"
+        app:boxBackgroundColor="#FFF"
+        android:layout_margin="10dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
         app:layout_constraintTop_toBottomOf="@id/address_input_town_city"
         app:layout_constraintStart_toStartOf="@id/text_fill_address">
@@ -280,14 +303,28 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+  <!--  <Button
         android:id="@+id/btnConfirmOrder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Confirm Your Order"
+        app:layout_constraintTop_toBottomOf="@id/"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="parent"/> !-->
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnConfirmOrder"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:text="Confirm Your Order"
+        android:textSize="16sp"
+        android:layout_margin="10dp"
+        app:icon="@drawable/ic_forward"
+        app:iconGravity="end"
+        style="@style/Widget.MaterialComponents.Button.Icon"
         app:layout_constraintTop_toBottomOf="@id/address_input_state"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
 
