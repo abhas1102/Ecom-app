@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.example.ecomapp.MyOrdersFragment
+import com.example.ecomapp.PaymentFragment
 import com.example.ecomapp.R
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -85,7 +86,7 @@ class PlaceOrderFragment : Fragment(), AdapterView.OnItemClickListener {
                 bundle.putString("pinCodeWhereOrderWillDeliver", pinCodeOfOrderDelivery.toString())
                 bundle.putString("dateOfOrder",formattedDate)
 
-                navigateToFragment(bundle)
+                navigateToFragment()
             } catch (e:Exception){}
         }
 
@@ -98,9 +99,16 @@ class PlaceOrderFragment : Fragment(), AdapterView.OnItemClickListener {
 
         
     }
-    fun navigateToFragment(bundle: Bundle) {
+  /*  fun navigateToFragment(bundle: Bundle) {
         val myOrdersFragment = MyOrdersFragment()
         myOrdersFragment.arguments = bundle
+        val fragmentTransaction = fragmentManager?.beginTransaction()
+        fragmentTransaction?.replace(R.id.flFragment,myOrdersFragment)
+        fragmentTransaction?.addToBackStack("")
+        fragmentTransaction?.commit()
+    } */
+    fun navigateToFragment() {
+        val myOrdersFragment = PaymentFragment()
         val fragmentTransaction = fragmentManager?.beginTransaction()
         fragmentTransaction?.replace(R.id.flFragment,myOrdersFragment)
         fragmentTransaction?.addToBackStack("")

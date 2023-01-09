@@ -3,14 +3,17 @@ package com.example.ecomapp.view
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
+import android.transition.Visibility
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupWindow
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.activityViewModels
@@ -72,11 +75,29 @@ class HomeFragment : Fragment() {
                // Log.d("HomeFragment", it.get(0).image)
                 binding.productRecyclerView.adapter = ProductListAdapter(it,clickListener)
 
+
             }
 
             binding.searchView.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
                 override fun onQueryTextSubmit(query: String?): Boolean {
                   //  var listOfTitles = arrayListOf<String>()
+                 /*   binding.offerCard.visibility = View.GONE
+                    binding.icCloth.visibility = View.GONE
+                    binding.icElectronics.visibility = View.GONE
+                    binding.icFurniture.visibility = View.GONE
+                    binding.icShoes.visibility = View.GONE
+                    binding.icJewellary.visibility = View.GONE
+                    binding.icOthers.visibility = View.GONE */
+
+                    binding.apply {
+                        offerCard.isVisible = false
+                        icCloth.isVisible = false
+                        icElectronics.isVisible = false
+                        icFurniture.isVisible = false
+                        icShoes.isVisible = false
+                        icJewellary.isVisible = false
+                        icOthers.isVisible = false
+                    }
                     it.forEach { item ->
                         if (item.title.contains(query!!)) {
                             matchedItem.add(item)
