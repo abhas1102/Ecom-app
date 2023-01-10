@@ -107,6 +107,34 @@
                 app:layout_constraintStart_toEndOf="@id/textState"
                 android:layout_marginStart="10dp"/>
 
+            <TextView
+                android:id="@+id/textModeOfPayment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:text="Payment Mode: "
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/textState"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/valuePaymentMode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:textStyle="normal"
+                android:gravity="center"
+                android:text="@{myOrdersProductDetail.otherDetails.paymentMode.toString()}"
+                app:layout_constraintTop_toTopOf="@id/textModeOfPayment"
+                app:layout_constraintStart_toEndOf="@id/textModeOfPayment"
+                android:layout_marginStart="10dp"
+                />
+
+
+
+
             <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -115,7 +143,7 @@
                 android:layout_marginLeft="10dp"
                 app:icon="@drawable/ic_track"
                 style="@style/Widget.MaterialComponents.Button.Icon"
-                app:layout_constraintTop_toTopOf="@id/textState"
+                app:layout_constraintTop_toBottomOf="@+id/valuePaymentMode"
                 app:layout_constraintEnd_toEndOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 

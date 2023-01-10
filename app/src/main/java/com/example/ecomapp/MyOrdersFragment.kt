@@ -27,6 +27,7 @@ class MyOrdersFragment : Fragment() {
         val stateOfOrder = arguments?.getString("stateWhereOrderWillDeliver")
         val pinCodeOfOrder = arguments?.getString("pinCodeWhereOrderWillDeliver")
         val dateOfOrder = arguments?.getString("dateOfOrder")
+        val paymentMode = arguments?.getString("paymentModeOfOrder")
         val view = inflater.inflate(R.layout.fragment_my_orders, container, false)
       //  val orderUserName : TextView = view.findViewById(R.id.myordername)
       //  orderUserName.text = nameFromPlaceOrder
@@ -35,7 +36,7 @@ class MyOrdersFragment : Fragment() {
         for (i in viewModelMyOrder.mapIdQuantity.values) {
             myOrderProductList.add(MyOrderProductDataModel(i.first,i.third,
                 otherDetails = OtherDetailsModel(dateOfOrder,
-                    stateOfOrder.toString(), pinCodeOfOrder.toString()
+                    stateOfOrder.toString(), pinCodeOfOrder.toString(), paymentMode.toString()
                 ) ))
         }
         Log.d("MyOrder", myOrderProductList.size.toString())
@@ -44,6 +45,7 @@ class MyOrdersFragment : Fragment() {
         Log.d("MyOrder", pinCodeOfOrder.toString())
         val rvMyOrder = view?.findViewById<RecyclerView>(R.id.myOrderRecyclerView)
         rvMyOrder?.adapter = MyOrderAdapter(myOrderProductList)
+        viewModelMyOrder.mapIdQuantity.clear()
 
 
         return view

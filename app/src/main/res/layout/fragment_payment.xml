@@ -110,22 +110,37 @@
         android:text="Make Payment" />
 
     <LinearLayout
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:background="@drawable/checkbox_background"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:id="@+id/llDone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
 
-        <ProgressBar
-            android:id="@+id/progress_bar"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/image_done"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/done"/>
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-
-            />
-
+            android:layout_marginTop="10dp"
+            android:text="Your Purchase Is Successful"
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="You will be redirected to My Order screen within a second"
+            android:textColor="@color/green"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 

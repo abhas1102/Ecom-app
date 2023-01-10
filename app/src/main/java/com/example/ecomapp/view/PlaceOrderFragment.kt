@@ -86,7 +86,7 @@ class PlaceOrderFragment : Fragment(), AdapterView.OnItemClickListener {
                 bundle.putString("pinCodeWhereOrderWillDeliver", pinCodeOfOrderDelivery.toString())
                 bundle.putString("dateOfOrder",formattedDate)
 
-                navigateToFragment()
+                navigateToFragment(bundle)
             } catch (e:Exception){}
         }
 
@@ -107,10 +107,11 @@ class PlaceOrderFragment : Fragment(), AdapterView.OnItemClickListener {
         fragmentTransaction?.addToBackStack("")
         fragmentTransaction?.commit()
     } */
-    fun navigateToFragment() {
-        val myOrdersFragment = PaymentFragment()
+    fun navigateToFragment(bundle: Bundle) {
+        val paymentFragment = PaymentFragment()
+        paymentFragment.arguments = bundle
         val fragmentTransaction = fragmentManager?.beginTransaction()
-        fragmentTransaction?.replace(R.id.flFragment,myOrdersFragment)
+        fragmentTransaction?.replace(R.id.flFragment,paymentFragment)
         fragmentTransaction?.addToBackStack("")
         fragmentTransaction?.commit()
     }

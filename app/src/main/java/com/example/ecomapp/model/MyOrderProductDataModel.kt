@@ -8,5 +8,6 @@ data class MyOrderProductDataModel(
 data class OtherDetailsModel(
     val orderedDate: String?,
     val state: String,
-    val pinCode: String
+    val pinCode: String,
+    val paymentMode:String
     )
