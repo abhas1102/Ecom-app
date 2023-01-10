@@ -8,9 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.fragment.app.activityViewModels
 import com.example.ecomapp.MyOrdersFragment
 import com.example.ecomapp.PaymentFragment
 import com.example.ecomapp.R
+import com.example.ecomapp.viewmodel.MainViewModel
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import java.lang.Exception
@@ -21,6 +23,7 @@ import java.util.*
 
 class PlaceOrderFragment : Fragment(), AdapterView.OnItemClickListener {
     //val autoCompleteText:AutoCompleteTextView = view?.findViewById(R.id.autocomplete)
+    private val viewModelPlaceOrder : MainViewModel by activityViewModels()
     lateinit var autoCompleteText:AutoCompleteTextView
     lateinit var textState:String
 
@@ -72,11 +75,13 @@ class PlaceOrderFragment : Fragment(), AdapterView.OnItemClickListener {
                 val date = Calendar.getInstance().time
                 val formatter = SimpleDateFormat.getDateInstance()
                 val formattedDate = formatter.format(date)
+                viewModelPlaceOrder.dateOfOrder = formattedDate
 
                // val stateFromWhereOrderIsDone = stateName.
 
                 val nameOfUser = textName.editText!!.text as Editable
                 val pinCodeOfOrderDelivery = pinCode.editText!!.text as Editable
+                viewModelPlaceOrder.pinCodeOfOrder = pinCodeOfOrderDelivery.toString()
                 Log.d("PlaceOrder", nameOfUser.toString().trim())
                 Log.d("PlaceOrder", textState)
                 val bundle = Bundle()
@@ -119,6 +124,8 @@ class PlaceOrderFragment : Fragment(), AdapterView.OnItemClickListener {
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         val item = parent?.getItemAtPosition(position).toString()
         textState = item
+        viewModelPlaceOrder.stateOfOrder = textState
+
 
     }
 

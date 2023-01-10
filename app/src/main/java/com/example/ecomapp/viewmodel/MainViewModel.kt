@@ -49,10 +49,17 @@ class MainViewModel: ViewModel(){
     private var map_id_quantity_for_my_order = mutableMapOf<Int,Triple<Int,Float,String>>() // New map for MyOrder Screen.
     var mapIdQuantityForMyOrder = map_id_quantity_for_my_order
 
-    var stateOfOrder = ""
-    var pinCodeOfOrder = ""
-    var dateOfOrder = ""
-    var paymentMode = ""
+   private var state_of_order: String = ""
+    var stateOfOrder = state_of_order
+
+    private var date_of_order: String = ""
+    var dateOfOrder = date_of_order
+
+    private var pin_code_of_order = ""
+    var pinCodeOfOrder = pin_code_of_order
+
+    private var payment_mode = ""
+    var paymentMode = payment_mode
 
 
 

@@ -8,19 +8,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.view.isVisible
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
+import com.example.ecomapp.viewmodel.MainViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 
 class PaymentFragment : Fragment() {
-
+     private val viewModelPayment : MainViewModel by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        //Now we don't need to receive these values because we saved the value from placeorderfragment to directly in viewodel variables
         val userName = arguments?.getString("userName")
         val dateOfOrder = arguments?.getString("dateOfOrder")
         val stateWhereOrderWillDeliver = arguments?.getString("stateWhereOrderWillDeliver")
@@ -41,6 +44,8 @@ class PaymentFragment : Fragment() {
             val radioButton:RadioButton = view.findViewById(selectedId)
 
             val modeOfPayment:String = radioButton.text.toString()
+            viewModelPayment.paymentMode = modeOfPayment
+
             Toast.makeText(context,"Mode of Payment is $modeOfPayment", Toast.LENGTH_SHORT).show()
             textMethodPayment.visibility = View.GONE
             radioGroup.visibility = View.GONE
@@ -73,6 +78,8 @@ class PaymentFragment : Fragment() {
         fragmentTransaction?.addToBackStack("")
         fragmentTransaction?.commit()
     }
+
+
 
 
 
