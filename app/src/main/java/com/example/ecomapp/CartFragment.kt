@@ -1,5 +1,6 @@
 package com.example.ecomapp
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -27,10 +28,13 @@ class CartFragment : Fragment() {
    private val viewModelForCart : MainViewModel by activityViewModels()
        // var cartProductList = ArrayList<CartProductDataModel>()
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
         // Inflate the layout for this fragment
         binding = FragmentCartBinding.inflate(inflater,container,false)
 

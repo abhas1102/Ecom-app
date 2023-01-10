@@ -39,12 +39,21 @@ class MainActivity : AppCompatActivity() {
         }
         replaceFragment(HomeFragment())
         val navigation = findViewById<BottomNavigationView>(R.id.bottomNavigation)
+
         navigation.setOnItemReselectedListener {
             when(it.itemId) {
                 R.id.home -> replaceFragment(HomeFragment())
                 R.id.cart -> replaceFragment(CartFragment())
+                R.id.order -> replaceFragment(MyOrdersFragment())
+
             }
         }
+      /*  val currentFragment = supportFragmentManager.findFragmentByTag("CartFragment")
+        if (currentFragment!=null && currentFragment.isVisible) {
+
+        } */
+
+
        // val homeFragment = HomeFragment()
 
         //Starting the fragment transaction from SupportFragmentManager class

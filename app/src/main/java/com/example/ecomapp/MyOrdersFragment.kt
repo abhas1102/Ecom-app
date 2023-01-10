@@ -18,6 +18,7 @@ class MyOrdersFragment : Fragment() {
    private val viewModelMyOrder : MainViewModel by activityViewModels()
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,18 +26,23 @@ class MyOrdersFragment : Fragment() {
         // Inflate the layout for this fragment
         val nameFromPlaceOrder = arguments?.getString("userName")
         val stateOfOrder = arguments?.getString("stateWhereOrderWillDeliver")
+        viewModelMyOrder.stateOfOrder = stateOfOrder.toString()
         val pinCodeOfOrder = arguments?.getString("pinCodeWhereOrderWillDeliver")
+        viewModelMyOrder.pinCodeOfOrder =pinCodeOfOrder.toString()
         val dateOfOrder = arguments?.getString("dateOfOrder")
+        viewModelMyOrder.dateOfOrder = dateOfOrder.toString()
         val paymentMode = arguments?.getString("paymentModeOfOrder")
+        viewModelMyOrder.paymentMode = paymentMode.toString()
         val view = inflater.inflate(R.layout.fragment_my_orders, container, false)
       //  val orderUserName : TextView = view.findViewById(R.id.myordername)
       //  orderUserName.text = nameFromPlaceOrder
 
         val myOrderProductList = arrayListOf<MyOrderProductDataModel>()
-        for (i in viewModelMyOrder.mapIdQuantity.values) {
+      viewModelMyOrder.mapIdQuantityForMyOrder.putAll(viewModelMyOrder.mapIdQuantity)
+        for (i in viewModelMyOrder.mapIdQuantityForMyOrder.values) {
             myOrderProductList.add(MyOrderProductDataModel(i.first,i.third,
-                otherDetails = OtherDetailsModel(dateOfOrder,
-                    stateOfOrder.toString(), pinCodeOfOrder.toString(), paymentMode.toString()
+                otherDetails = OtherDetailsModel(viewModelMyOrder.dateOfOrder,
+                    viewModelMyOrder.stateOfOrder, viewModelMyOrder.pinCodeOfOrder, viewModelMyOrder.paymentMode
                 ) ))
         }
         Log.d("MyOrder", myOrderProductList.size.toString())
@@ -50,7 +56,15 @@ class MyOrdersFragment : Fragment() {
 
         return view
     }
-    private fun setUpRecyclerView() {
+
+    override fun onResume() {
+        super.onResume()
+        val nameFromPlaceOrder = arguments?.getString("userName")
+        val stateOfOrder = arguments?.getString("stateWhereOrderWillDeliver")
+        val pinCodeOfOrder = arguments?.getString("pinCodeWhereOrderWillDeliver")
+        val dateOfOrder = arguments?.getString("dateOfOrder")
+        val paymentMode = arguments?.getString("paymentModeOfOrder")
+
 
     }
 

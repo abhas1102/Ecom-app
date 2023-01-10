@@ -194,7 +194,7 @@ class ProductDetailFragment : Fragment() {
 
 
             val ft = fragmentManager?.beginTransaction()
-            ft?.replace(R.id.flFragment,cartFragment)
+            ft?.replace(R.id.flFragment,cartFragment,"CartFragment")
             ft?.addToBackStack("")
             ft?.commit()
             // Create the transaction
