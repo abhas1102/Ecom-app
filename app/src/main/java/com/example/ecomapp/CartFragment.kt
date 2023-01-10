@@ -1,6 +1,7 @@
 package com.example.ecomapp
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -22,6 +23,7 @@ import com.example.ecomapp.view.PlaceOrderFragment
 import com.example.ecomapp.viewmodel.MainViewModel
 import com.google.android.material.textview.MaterialTextView
 import org.w3c.dom.Text
+import java.util.*
 
 class CartFragment : Fragment() {
    lateinit var binding: FragmentCartBinding
@@ -48,7 +50,11 @@ class CartFragment : Fragment() {
         // Check if id is clicked earlier, if clicked then just increase the quantity
         // If it is not clicked earlier then add another card into the list
 
-
+        if (viewModelForCart.mapIdQuantity.size == 0) {
+            binding.addItemsInCart.visibility = View.VISIBLE
+            binding.btnContinueCheckout.setBackgroundColor(Color.GRAY)
+            binding.btnContinueCheckout.isEnabled = false
+        } else binding.addItemsInCart.visibility = View.GONE
 
 
         return binding.root
@@ -62,17 +68,22 @@ class CartFragment : Fragment() {
        // var value = viewModelForCart.mapIdQuantity.values
        // val productId = arguments?.getInt("product_id")
         var cartProductList = arrayListOf<CartProductDataModel>()
+        val currency: Currency = Currency.getInstance(Locale.getDefault())
+        val symbol = currency.symbol
+
 
        // val priceProduct = arguments?.getFloat("product_price")
 
 
         //Adding values saved in viewmodel map in cartProductList so that all adapter can fetch values one by one from list
-        for (i in viewModelForCart.mapIdQuantity.values)  cartProductList.add(CartProductDataModel(i.first,i.third,(i.first * i.second)))
+        for (i in viewModelForCart.mapIdQuantity.values) {
+            cartProductList.add(CartProductDataModel(i.first,i.third,(i.first * i.second)))
+
+        }
        /* val inflater = LayoutInflater.from(context)
         val view = inflater.inflate(R.layout.cart_item_layout, null)
-        val totalPriceText = view.findViewById<TextView>(R.id.total_price_text).text
-        val newPriceText = view.findViewById<TextView>(R.id.total_price_text)
-        newPriceText.text = String.format("%.2f", totalPriceText) */
+        val priceView = view.findViewById<TextView>(R.id.total_price_text)
+        priceView.text = "$currency ${priceView.text}" */
 
 
         Log.d("cartArray", cartProductList.toString())
