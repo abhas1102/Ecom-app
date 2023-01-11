@@ -49,7 +49,7 @@ class MyOrdersFragment : Fragment() {
                 ) ))
         }
         Log.d("MyOrder", myOrderProductList.size.toString())
-        Log.d("MyOrderDate", dateOfOrder.toString())
+        Log.d("MyOrderDate", viewModelMyOrder.dateOfOrder)
         Log.d("MyOrderState", stateOfOrder.toString())
         Log.d("MyOrderPin", pinCodeOfOrder.toString())
         val rvMyOrder = view?.findViewById<RecyclerView>(R.id.myOrderRecyclerView)
