@@ -78,9 +78,10 @@ class ProductDetailFragment : Fragment() {
                } */
         if (productDetail!!.id in viewmodel.mapIdQuantity.keys) {
             // val value = viewmodel.mapIdQuantity.filterValues { it == productDetail.id }.keys
-            var valueOfId = viewmodel.mapIdQuantity.getValue(productDetail.id).first
+            var valueOfId = viewmodel.mapIdQuantity.getValue(productDetail.id)
             Log.d("value of id", valueOfId.toString())
-            viewmodel.updatedQuantityValue = valueOfId
+           // viewmodel.updatedQuantityValue = valueOfId
+            viewmodel.updatedQuantityValue = valueOfId.quantity
 
             binding.addButton.setOnClickListener {
                 // Log.d("ProductDetail",initialValue.toString())
@@ -95,7 +96,8 @@ class ProductDetailFragment : Fragment() {
                 viewmodel.mapIdQuantity.put(
                     productDetail.id,
                   //  viewmodel.updatedQuantityValue
-                Triple(viewmodel.updatedQuantityValue,productDetail.price,productDetail.title)
+               // Triple(viewmodel.updatedQuantityValue,productDetail.price,productDetail.title)
+                CartProductDataModel(viewmodel.updatedQuantityValue,productDetail.title,productDetail.price,productDetail.image)
                 )
                 Log.d(
                     "map id quantity",
@@ -112,7 +114,8 @@ class ProductDetailFragment : Fragment() {
                viewmodel.mapIdQuantity.put(
                    productDetail.id,
                   // viewmodel.updatedQuantityValue
-               Triple(viewmodel.updatedQuantityValue,productDetail.price,productDetail.title)
+               //Triple(viewmodel.updatedQuantityValue,productDetail.price,productDetail.title)
+                   CartProductDataModel(viewmodel.updatedQuantityValue,productDetail.title,productDetail.price,productDetail.image)
                )
            }
         }
@@ -131,7 +134,8 @@ class ProductDetailFragment : Fragment() {
                 viewmodel.mapIdQuantity.put(
                     productDetail.id,
                    // viewmodel.updatedQuantityValue
-                    Triple(viewmodel.updatedQuantityValue,productDetail.price,productDetail.title)
+                  //  Triple(viewmodel.updatedQuantityValue,productDetail.price,productDetail.title)
+                    CartProductDataModel(viewmodel.updatedQuantityValue,productDetail.title,productDetail.price,productDetail.image)
                 )
                 Log.d(
                     "map id quantity",
@@ -150,7 +154,8 @@ class ProductDetailFragment : Fragment() {
                     viewmodel.mapIdQuantity.put(
                         productDetail.id,
                       //  viewmodel.updatedQuantityValue
-                    Triple(viewmodel.updatedQuantityValue,productDetail.price,productDetail.title)
+                  //  Triple(viewmodel.updatedQuantityValue,productDetail.price,productDetail.title)
+                        CartProductDataModel(viewmodel.updatedQuantityValue,productDetail.title,productDetail.price,productDetail.image)
                     )
                 }
 

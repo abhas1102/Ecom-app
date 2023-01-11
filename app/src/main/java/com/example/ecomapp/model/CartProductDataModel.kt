@@ -7,5 +7,6 @@ import kotlinx.parcelize.Parcelize
 data class CartProductDataModel(
     val quantity:Int,
     val title:String,
-    val price:Float
+    val price:Float,
+    val image:String
 ):Parcelable

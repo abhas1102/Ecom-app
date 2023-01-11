@@ -27,12 +27,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/cart_card_image"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginStart="20dp"
-                android:src="@drawable/clothproduct"
+                app:imageUrl="@{cartProductDetails.image}"
                 android:padding="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginBottom="10dp"
@@ -47,13 +47,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
-                android:maxLength="22"
+
                 android:text="@{cartProductDetails.title}"
-                android:textSize="13sp"
-                android:textStyle="bold"
+                android:maxLength="20"
+                android:textSize="16sp"
+                android:textStyle="normal"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toEndOf="@id/cart_card_image"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/cart_card_delete_icon"/>
 
             <ImageView
                 android:id="@+id/cart_card_delete_icon"
@@ -63,7 +64,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/ic_delete"
-                app:layout_constraintStart_toEndOf="@id/cart_card_title"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView

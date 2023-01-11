@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.findFragment
 import com.example.ecomapp.adapter.CartAdapter
 import com.example.ecomapp.clicklistener.ClickListener
 import com.example.ecomapp.databinding.CartItemLayoutBinding
@@ -29,6 +30,11 @@ class CartFragment : Fragment() {
    lateinit var binding: FragmentCartBinding
    private val viewModelForCart : MainViewModel by activityViewModels()
        // var cartProductList = ArrayList<CartProductDataModel>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
 
     override fun onCreateView(
@@ -77,13 +83,13 @@ class CartFragment : Fragment() {
 
         //Adding values saved in viewmodel map in cartProductList so that all adapter can fetch values one by one from list
         for (i in viewModelForCart.mapIdQuantity.values) {
-            cartProductList.add(CartProductDataModel(i.first,i.third,(i.first * i.second)))
+          //  cartProductList.add(CartProductDataModel(i.first,i.third,(i.first * i.second)))
+            cartProductList.add(CartProductDataModel(i.quantity, i.title,(i.price*i.quantity),i.image))
 
         }
-       /* val inflater = LayoutInflater.from(context)
-        val view = inflater.inflate(R.layout.cart_item_layout, null)
-        val priceView = view.findViewById<TextView>(R.id.total_price_text)
-        priceView.text = "$currency ${priceView.text}" */
+      /* val view = layoutInflater.inflate(R.layout.cart_item_layout, null)
+        val valueOfPrice = view.findViewById<TextView>(R.id.total_price_text)
+        valueOfPrice.text = "$currency ${binding.cartProductDetail?.price}" */
 
 
         Log.d("cartArray", cartProductList.toString())

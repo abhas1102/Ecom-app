@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ecomapp.data.Repository
+import com.example.ecomapp.model.CartProductDataModel
 import com.example.ecomapp.model.ProductDataModel
 import com.example.ecomapp.model.ProductsData
 import kotlinx.coroutines.delay
@@ -42,11 +43,14 @@ class MainViewModel: ViewModel(){
 
    // private var map_id_quantity = mutableMapOf<Int,Int>()
   //  private var map_id_quantity = mutableMapOf<Int,Pair<Int,Float>>()
-    private var map_id_quantity = mutableMapOf<Int,Triple<Int,Float,String>>()
-  // private var map_id_quantity = mutableMapOf<Int,ProductDataModel>() -> This can be done to fetch more details about product
+  //  private var map_id_quantity = mutableMapOf<Int,Triple<Int,Float,String>>()
+   private var map_id_quantity = mutableMapOf<Int,CartProductDataModel>() //-> This can be done to fetch more details about product
     var mapIdQuantity = map_id_quantity
 
-    private var map_id_quantity_for_my_order = mutableMapOf<Int,Triple<Int,Float,String>>() // New map for MyOrder Screen.
+   // private var map_id_quantity_for_my_order = mutableMapOf<Int,Triple<Int,Float,String>>() // New map for MyOrder Screen.
+   // var mapIdQuantityForMyOrder = map_id_quantity_for_my_order
+
+    private var map_id_quantity_for_my_order = mutableMapOf<Int,CartProductDataModel>() // New map for MyOrder Screen.
     var mapIdQuantityForMyOrder = map_id_quantity_for_my_order
 
    private var state_of_order: String = ""

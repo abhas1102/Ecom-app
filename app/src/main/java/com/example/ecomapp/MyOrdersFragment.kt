@@ -25,6 +25,7 @@ class MyOrdersFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         Toast.makeText(context,"MyOrderOncreateviewcalled",Toast.LENGTH_SHORT).show()
+
         val nameFromPlaceOrder = arguments?.getString("userName")
         val stateOfOrder = arguments?.getString("stateWhereOrderWillDeliver")
        // viewModelMyOrder.stateOfOrder = stateOfOrder.toString()
@@ -43,7 +44,11 @@ class MyOrdersFragment : Fragment() {
         for (i in viewModelMyOrder.mapIdQuantityForMyOrder.values) {
             // We are not using the values that we received from bundle because value may destroy as the previous fragment will destroy
             // We are using the values of viewModels because we can get the preserved value in MyOrderScreen
-            myOrderProductList.add(MyOrderProductDataModel(i.first,i.third,
+          /*  myOrderProductList.add(MyOrderProductDataModel(i.first,i.third,
+                otherDetails = OtherDetailsModel(viewModelMyOrder.dateOfOrder,
+                    viewModelMyOrder.stateOfOrder, viewModelMyOrder.pinCodeOfOrder, viewModelMyOrder.paymentMode
+                ) )) */
+            myOrderProductList.add(MyOrderProductDataModel(i.quantity,i.title,
                 otherDetails = OtherDetailsModel(viewModelMyOrder.dateOfOrder,
                     viewModelMyOrder.stateOfOrder, viewModelMyOrder.pinCodeOfOrder, viewModelMyOrder.paymentMode
                 ) ))
