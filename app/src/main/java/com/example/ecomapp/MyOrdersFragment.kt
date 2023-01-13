@@ -10,6 +10,8 @@ import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ecomapp.adapter.MyOrderAdapter
+import com.example.ecomapp.db.ItemDao
+import com.example.ecomapp.db.ItemRoomDatabase
 import com.example.ecomapp.model.MyOrderProductDataModel
 import com.example.ecomapp.model.OtherDetailsModel
 import com.example.ecomapp.viewmodel.MainViewModel
@@ -40,8 +42,9 @@ class MyOrdersFragment : Fragment() {
       //  orderUserName.text = nameFromPlaceOrder
 
         val myOrderProductList = arrayListOf<MyOrderProductDataModel>()
+        val itemDb: ItemRoomDatabase = ItemRoomDatabase.getDatabase(requireActivity())
       viewModelMyOrder.mapIdQuantityForMyOrder.putAll(viewModelMyOrder.mapIdQuantity)
-        for (i in viewModelMyOrder.mapIdQuantityForMyOrder.values) {
+       /* for (i in viewModelMyOrder.mapIdQuantityForMyOrder.values) {
             // We are not using the values that we received from bundle because value may destroy as the previous fragment will destroy
             // We are using the values of viewModels because we can get the preserved value in MyOrderScreen
           /*  myOrderProductList.add(MyOrderProductDataModel(i.first,i.third,
@@ -52,7 +55,15 @@ class MyOrdersFragment : Fragment() {
                 otherDetails = OtherDetailsModel(viewModelMyOrder.dateOfOrder,
                     viewModelMyOrder.stateOfOrder, viewModelMyOrder.pinCodeOfOrder, viewModelMyOrder.paymentMode
                 ) ))
+        } */
+        for (i in itemDb.itemDao().getItems()) {
+            myOrderProductList.add(MyOrderProductDataModel(i.quantity,i.title,
+                otherDetails = OtherDetailsModel(viewModelMyOrder.dateOfOrder,
+                    viewModelMyOrder.stateOfOrder, viewModelMyOrder.pinCodeOfOrder, viewModelMyOrder.paymentMode
+                ) ))
+
         }
+
         Log.d("MyOrder", myOrderProductList.size.toString())
         Log.d("MyOrderDate", viewModelMyOrder.dateOfOrder)
         Log.d("MyOrderState", stateOfOrder.toString())

@@ -1,5 +1,6 @@
 package com.example.ecomapp
 
+import android.content.ClipData
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
@@ -19,12 +20,17 @@ import com.example.ecomapp.clicklistener.ClickListener
 import com.example.ecomapp.databinding.CartItemLayoutBinding
 import com.example.ecomapp.databinding.FragmentCartBinding
 import com.example.ecomapp.databinding.FragmentHomeBinding
+import com.example.ecomapp.db.Entity
+import com.example.ecomapp.db.ItemDao
+import com.example.ecomapp.db.ItemRoomDatabase
 import com.example.ecomapp.model.CartProductDataModel
 import com.example.ecomapp.model.ProductDataModel
 import com.example.ecomapp.utils.bindImage
 import com.example.ecomapp.view.PlaceOrderFragment
 import com.example.ecomapp.viewmodel.MainViewModel
 import com.google.android.material.textview.MaterialTextView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 import org.w3c.dom.Text
 import java.util.*
 
@@ -32,6 +38,8 @@ class CartFragment : Fragment() {
    lateinit var binding: FragmentCartBinding
    private val viewModelForCart : MainViewModel by activityViewModels()
        // var cartProductList = ArrayList<CartProductDataModel>()
+
+    val items = mutableListOf<Entity>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,13 +66,24 @@ class CartFragment : Fragment() {
         // Check if id is clicked earlier, if clicked then just increase the quantity
         // If it is not clicked earlier then add another card into the list
 
-        if (viewModelForCart.mapIdQuantity.size == 0) {
+       /* if (viewModelForCart.mapIdQuantity.size == 0) {
             binding.addItemsInCart.visibility = View.VISIBLE
             binding.btnContinueCheckout.setBackgroundColor(Color.GRAY)
             binding.btnContinueCheckout.gravity = Gravity.BOTTOM
             binding.btnContinueCheckout.isEnabled = false
 
-        } else binding.addItemsInCart.visibility = View.GONE
+        } else binding.addItemsInCart.visibility = View.GONE  */
+
+       /* if (items.size == 0) {
+            binding.addItemsInCart.visibility = View.VISIBLE
+            binding.btnContinueCheckout.setBackgroundColor(Color.GRAY)
+            binding.btnContinueCheckout.gravity = Gravity.BOTTOM
+            binding.btnContinueCheckout.isEnabled = false
+
+        } else{
+            binding.addItemsInCart.visibility = View.GONE
+            binding.btnContinueCheckout.isEnabled = true
+        } */
 
 
         return binding.root
@@ -77,9 +96,13 @@ class CartFragment : Fragment() {
        // binding.cartProductDetail = arguments?.getParcelable("cartProductDetail")
        // var value = viewModelForCart.mapIdQuantity.values
        // val productId = arguments?.getInt("product_id")
-        var cartProductList = arrayListOf<CartProductDataModel>()
+       // var cartProductList = arrayListOf<CartProductDataModel>()
+        var cartProductsDbList = arrayListOf<Entity>()
         val currency: Currency = Currency.getInstance(Locale.getDefault())
         val symbol = currency.symbol
+        val itemDb:ItemRoomDatabase = ItemRoomDatabase.getDatabase(requireActivity())
+
+
 
 
        // val priceProduct = arguments?.getFloat("product_price")
@@ -88,17 +111,24 @@ class CartFragment : Fragment() {
         //Adding values saved in viewmodel map in cartProductList so that all adapter can fetch values one by one from list
         for (i in viewModelForCart.mapIdQuantity.values) {
           //  cartProductList.add(CartProductDataModel(i.first,i.third,(i.first * i.second)))
-            cartProductList.add(CartProductDataModel(i.quantity, i.title,(i.price*i.quantity),i.image))
+           // cartProductList.add(CartProductDataModel(i.quantity, i.title,(i.price*i.quantity),i.image))
+          //  cartProductsDbList.add(Entity(quantity =i.quantity,title =i.title,price =(i.price*i.quantity),image =i.image))
+            itemDb.itemDao().insert(Entity(quantity =i.quantity,title =i.title,price =(i.price*i.quantity),image =i.image))
+
+
 
         }
+
       /* val view = layoutInflater.inflate(R.layout.cart_item_layout, null)
         val valueOfPrice = view.findViewById<TextView>(R.id.total_price_text)
         valueOfPrice.text = "$currency ${binding.cartProductDetail?.price}" */
 
 
-        Log.d("cartArray", cartProductList.toString())
+      //  Log.d("cartArray", cartProductList.toString())
         binding.lifecycleOwner = viewLifecycleOwner
-        binding.cartRecyclerView.adapter = CartAdapter(cartProductList)
+       // binding.cartRecyclerView.adapter = CartAdapter(cartProductList)
+        items.addAll(itemDb.itemDao().getItems())
+        binding.cartRecyclerView.adapter = CartAdapter(items)
 
 
         val itemUpdateListener = object: ClickListener{
@@ -113,10 +143,12 @@ class CartFragment : Fragment() {
         }
         binding.btnContinueCheckout.setOnClickListener {
             var totalPriceOfItemsInCart = 0.0
-            for (i in 0..cartProductList.size-1) totalPriceOfItemsInCart+=cartProductList[i].price
+           // for (i in 0..cartProductList.size-1) totalPriceOfItemsInCart+=cartProductList[i].price
+            for (i in 0..items.size-1) totalPriceOfItemsInCart+=items[i].price
 
             val bundle = Bundle()
-            bundle.putInt("total_item_in_cart", cartProductList.size)
+           // bundle.putInt("total_item_in_cart", cartProductList.size)
+            bundle.putInt("total_item_in_cart", items.size)
             bundle.putDouble("total_price_of_item_in_cart", totalPriceOfItemsInCart)
 
             val fragmentPlaceOrder = PlaceOrderFragment()

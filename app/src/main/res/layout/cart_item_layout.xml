@@ -6,7 +6,7 @@
     <data>
         <variable
             name="cartProductDetails"
-            type="com.example.ecomapp.model.CartProductDataModel" />
+            type="com.example.ecomapp.db.Entity" />
     </data>
 
 

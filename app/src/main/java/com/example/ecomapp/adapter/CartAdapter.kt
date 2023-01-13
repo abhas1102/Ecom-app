@@ -4,14 +4,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ecomapp.databinding.CartItemLayoutBinding
+import com.example.ecomapp.db.Entity
 import com.example.ecomapp.model.CartProductDataModel
 import com.example.ecomapp.model.ProductDataModel
 
-class CartAdapter(val cartProductList:List<CartProductDataModel>):RecyclerView.Adapter<CartAdapter.ViewHolder>() {
+class CartAdapter(val cartProductList:List<Entity>):RecyclerView.Adapter<CartAdapter.ViewHolder>() {
 
 
     class ViewHolder(val binding:CartItemLayoutBinding):RecyclerView.ViewHolder(binding.root) {
-        fun bind(data: CartProductDataModel) {
+        fun bind(data: Entity) {
             binding.cartProductDetails = data
         }
     }

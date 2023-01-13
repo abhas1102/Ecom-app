@@ -5,18 +5,22 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ecomapp.data.Repository
+import com.example.ecomapp.db.Entity
+import com.example.ecomapp.db.ItemDao
 import com.example.ecomapp.model.CartProductDataModel
 import com.example.ecomapp.model.ProductDataModel
 import com.example.ecomapp.model.ProductsData
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.w3c.dom.ls.LSException
 
-class MainViewModel: ViewModel(){
+class MainViewModel(): ViewModel(){
 
     private val repository = Repository()
+
 
     private val _products = MutableLiveData<ArrayList<ProductDataModel>>()
     val products:LiveData<ArrayList<ProductDataModel>> = _products
@@ -76,10 +80,10 @@ class MainViewModel: ViewModel(){
         getProducts()
 
     }
-    fun addQuantityValue(): Int? {
+  /*  fun addQuantityValue(): Int? {
         quantity_value = quantityValue + 1
         return quantity_value
-    }
+    } */
 
    /* fun productPrice(quantity:Int):Float {
         _price.value =
@@ -92,5 +96,9 @@ class MainViewModel: ViewModel(){
            _products.postValue(data as ArrayList)
        }
    }
+
+
+
+
 
 }
