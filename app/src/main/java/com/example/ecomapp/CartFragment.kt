@@ -4,12 +4,14 @@ import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.findFragment
 import com.example.ecomapp.adapter.CartAdapter
@@ -59,7 +61,9 @@ class CartFragment : Fragment() {
         if (viewModelForCart.mapIdQuantity.size == 0) {
             binding.addItemsInCart.visibility = View.VISIBLE
             binding.btnContinueCheckout.setBackgroundColor(Color.GRAY)
+            binding.btnContinueCheckout.gravity = Gravity.BOTTOM
             binding.btnContinueCheckout.isEnabled = false
+
         } else binding.addItemsInCart.visibility = View.GONE
 
 
