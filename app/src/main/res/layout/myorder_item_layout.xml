@@ -3,7 +3,8 @@
     <data>
         <variable
             name="myOrdersProductDetail"
-            type="com.example.ecomapp.model.MyOrderProductDataModel" />
+            type="com.example.ecomapp.db.EntityMyOrder"/>
+           <!-- type="com.example.ecomapp.model.MyOrderProductDataModel" -->
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -34,9 +35,12 @@
                 android:textColor="@color/green"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:text="@{myOrdersProductDetail.otherDetails.orderedDate.toString()}"
+                android:text="@{myOrdersProductDetail.date.toString()}"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
+              <!--  android:text="@{myOrdersProductDetail.otherDetails.orderedDate.toString()}" -->
+
+
 
             <TextView
                 android:id="@+id/textOrderedItem"
@@ -88,13 +92,14 @@
                 android:id="@+id/textState"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{myOrdersProductDetail.otherDetails.state.toString()}"
+
                 android:textSize="18sp"
                 android:textStyle="normal"
                 android:textColor="@color/black"
 
                 app:layout_constraintTop_toBottomOf="@id/textQty"
                 app:layout_constraintStart_toStartOf="parent"/>
+            <!-- android:text="@{myOrdersProductDetail.otherDetails.state.toString()}" -->
             <TextView
                 android:id="@+id/textPin"
                 android:layout_width="wrap_content"
@@ -102,10 +107,11 @@
                 android:textSize="18sp"
                 android:textColor="@color/black"
                 android:textStyle="normal"
-                android:text="@{myOrdersProductDetail.otherDetails.pinCode.toString()}"
+
                 app:layout_constraintTop_toTopOf="@id/textState"
                 app:layout_constraintStart_toEndOf="@id/textState"
                 android:layout_marginStart="10dp"/>
+            <!-- android:text="@{myOrdersProductDetail.otherDetails.pinCode.toString()}" -->
 
             <TextView
                 android:id="@+id/textModeOfPayment"
@@ -126,11 +132,12 @@
                 android:textColor="@color/black"
                 android:textStyle="normal"
                 android:gravity="center"
-                android:text="@{myOrdersProductDetail.otherDetails.paymentMode.toString()}"
+
                 app:layout_constraintTop_toTopOf="@id/textModeOfPayment"
                 app:layout_constraintStart_toEndOf="@id/textModeOfPayment"
                 android:layout_marginStart="10dp"
                 />
+            <!--  android:text="@{myOrdersProductDetail.otherDetails.paymentMode.toString()}" -->
 
 
 

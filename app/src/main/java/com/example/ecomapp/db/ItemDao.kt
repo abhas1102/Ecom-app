@@ -9,13 +9,17 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface ItemDao {
 
-    @Query("SELECT * from entity")
+    @Query("SELECT * from `cart-db`")
     fun getItems():List<Entity>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
      fun insert(item: Entity)
 
+     @Query("SELECT * from `myorder-db`")
+     fun getItemsOfMyOrder():List<EntityMyOrder>
 
+     @Insert(onConflict = OnConflictStrategy.IGNORE)
+     fun insertInMyOrder(item: EntityMyOrder)
 
 
 }

@@ -77,6 +77,7 @@ class PlaceOrderFragment : Fragment(), AdapterView.OnItemClickListener {
                 val formattedDate = formatter.format(date)
                 viewModelPlaceOrder.dateOfOrder = formattedDate
 
+
                // val stateFromWhereOrderIsDone = stateName.
 
                 val nameOfUser = textName.editText!!.text as Editable

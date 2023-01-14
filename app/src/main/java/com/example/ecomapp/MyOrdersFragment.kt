@@ -10,6 +10,8 @@ import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ecomapp.adapter.MyOrderAdapter
+import com.example.ecomapp.db.Entity
+import com.example.ecomapp.db.EntityMyOrder
 import com.example.ecomapp.db.ItemDao
 import com.example.ecomapp.db.ItemRoomDatabase
 import com.example.ecomapp.model.MyOrderProductDataModel
@@ -41,7 +43,8 @@ class MyOrdersFragment : Fragment() {
       //  val orderUserName : TextView = view.findViewById(R.id.myordername)
       //  orderUserName.text = nameFromPlaceOrder
 
-        val myOrderProductList = arrayListOf<MyOrderProductDataModel>()
+        //val myOrderProductList = arrayListOf<MyOrderProductDataModel>()
+        val myOrderProductList = arrayListOf<EntityMyOrder>()
         val itemDb: ItemRoomDatabase = ItemRoomDatabase.getDatabase(requireActivity())
       viewModelMyOrder.mapIdQuantityForMyOrder.putAll(viewModelMyOrder.mapIdQuantity)
        /* for (i in viewModelMyOrder.mapIdQuantityForMyOrder.values) {
@@ -56,21 +59,23 @@ class MyOrdersFragment : Fragment() {
                     viewModelMyOrder.stateOfOrder, viewModelMyOrder.pinCodeOfOrder, viewModelMyOrder.paymentMode
                 ) ))
         } */
+
         for (i in itemDb.itemDao().getItems()) {
-            myOrderProductList.add(MyOrderProductDataModel(i.quantity,i.title,
-                otherDetails = OtherDetailsModel(viewModelMyOrder.dateOfOrder,
-                    viewModelMyOrder.stateOfOrder, viewModelMyOrder.pinCodeOfOrder, viewModelMyOrder.paymentMode
-                ) ))
+            itemDb.itemDao().insertInMyOrder(EntityMyOrder(quantity = i.quantity, title = i.title, date = viewModelMyOrder.dateOfOrder))
 
         }
 
+
+
         Log.d("MyOrder", myOrderProductList.size.toString())
         Log.d("MyOrderDate", viewModelMyOrder.dateOfOrder)
-        Log.d("MyOrderState", stateOfOrder.toString())
-        Log.d("MyOrderPin", pinCodeOfOrder.toString())
+      //  Log.d("MyOrderState", stateOfOrder.toString())
+      //  Log.d("MyOrderPin", pinCodeOfOrder.toString())
         val rvMyOrder = view?.findViewById<RecyclerView>(R.id.myOrderRecyclerView)
-        rvMyOrder?.adapter = MyOrderAdapter(myOrderProductList)
-        viewModelMyOrder.mapIdQuantity.clear()
+       // rvMyOrder?.adapter = MyOrderAdapter(myOrderProductList)
+        rvMyOrder?.adapter = MyOrderAdapter(itemDb.itemDao().getItemsOfMyOrder())
+       // viewModelMyOrder.mapIdQuantity.clear()
+
 
 
         return view
