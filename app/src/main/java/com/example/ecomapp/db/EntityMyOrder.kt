@@ -9,12 +9,12 @@ data class EntityMyOrder(
     @PrimaryKey(autoGenerate = true)
     val id:Int?=null,
 
-    @ColumnInfo(name = "quantity")
+    @ColumnInfo(name = "_quantity")
     val quantity:Int,
 
-    @ColumnInfo(name = "title")
+    @ColumnInfo(name = "_title")
     val title:String,
 
-    @ColumnInfo(name = "dateOfOrder")
+    @ColumnInfo(name = "_dateOfOrder")
     val date: String
 )

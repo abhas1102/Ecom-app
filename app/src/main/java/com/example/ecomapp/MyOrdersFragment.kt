@@ -75,6 +75,7 @@ class MyOrdersFragment : Fragment() {
        // rvMyOrder?.adapter = MyOrderAdapter(myOrderProductList)
         rvMyOrder?.adapter = MyOrderAdapter(itemDb.itemDao().getItemsOfMyOrder())
        // viewModelMyOrder.mapIdQuantity.clear()
+        itemDb.itemDao().deleteCart(itemDb.itemDao().getItems())
 
 
 

@@ -39,7 +39,7 @@ class CartFragment : Fragment() {
    private val viewModelForCart : MainViewModel by activityViewModels()
        // var cartProductList = ArrayList<CartProductDataModel>()
 
-    val items = mutableListOf<Entity>()
+    val items = arrayListOf<Entity>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -125,8 +125,9 @@ class CartFragment : Fragment() {
 
 
       //  Log.d("cartArray", cartProductList.toString())
-        binding.lifecycleOwner = viewLifecycleOwner
+      //  binding.lifecycleOwner = viewLifecycleOwner
        // binding.cartRecyclerView.adapter = CartAdapter(cartProductList)
+
         items.addAll(itemDb.itemDao().getItems())
         binding.cartRecyclerView.adapter = CartAdapter(items)
 

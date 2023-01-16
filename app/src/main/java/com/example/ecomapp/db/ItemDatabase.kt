@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 
-@Database(entities = [Entity::class,EntityMyOrder::class] , version = 4, exportSchema = false)
+@Database(entities = [Entity::class,EntityMyOrder::class] , version = 5, exportSchema = false)
 abstract class ItemRoomDatabase: RoomDatabase() {
     abstract fun itemDao() : ItemDao
 
