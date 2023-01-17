@@ -90,11 +90,7 @@ class MyOrdersFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         Toast.makeText(context,"MyOrderOnResumeCalled", Toast.LENGTH_SHORT).show()
-        val nameFromPlaceOrder = arguments?.getString("userName")
-        val stateOfOrder = arguments?.getString("stateWhereOrderWillDeliver")
-        val pinCodeOfOrder = arguments?.getString("pinCodeWhereOrderWillDeliver")
-        val dateOfOrder = arguments?.getString("dateOfOrder")
-        val paymentMode = arguments?.getString("paymentModeOfOrder")
+
 
 
     }

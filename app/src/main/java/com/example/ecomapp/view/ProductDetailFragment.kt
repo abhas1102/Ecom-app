@@ -14,6 +14,8 @@ import androidx.fragment.app.*
 import com.example.ecomapp.CartFragment
 import com.example.ecomapp.R
 import com.example.ecomapp.databinding.FragmentProductDetailBinding
+import com.example.ecomapp.db.Entity
+import com.example.ecomapp.db.ItemRoomDatabase
 import com.example.ecomapp.model.CartProductDataModel
 import com.example.ecomapp.viewmodel.MainViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -29,6 +31,7 @@ class ProductDetailFragment : Fragment() {
     //var quantityValue = 0
     private val viewmodel:MainViewModel by activityViewModels()
     var cartProductList = ArrayList<CartProductDataModel>()
+    val database:ItemRoomDatabase = ItemRoomDatabase.getDatabase(requireActivity())
 
 
     override fun onCreateView(
@@ -76,6 +79,10 @@ class ProductDetailFragment : Fragment() {
                    viewmodel.updatedQuantityValue = 0
                    binding.quantityText.text = viewmodel.updatedQuantityValue.toString()
                } */
+      /*  val items = database.itemDao().getItems()
+        for (i in items) {
+            if (productDetail!!.id == i.id)
+        } */
         if (productDetail!!.id in viewmodel.mapIdQuantity.keys) {
             // val value = viewmodel.mapIdQuantity.filterValues { it == productDetail.id }.keys
             var valueOfId = viewmodel.mapIdQuantity.getValue(productDetail.id)
@@ -131,6 +138,11 @@ class ProductDetailFragment : Fragment() {
                 viewmodel.updatedQuantityValue += 1
                 //   binding.totalPriceText.text = "Total price"
                 binding.quantityText.text = viewmodel.updatedQuantityValue.toString()
+
+                //additional database insertion
+                database.itemDao().insert(Entity(id = productDetail.id, quantity = viewmodel.updatedQuantityValue,
+                title = productDetail.title, price = productDetail.price, image = productDetail.image))
+                //additional database insertion
                 viewmodel.mapIdQuantity.put(
                     productDetail.id,
                    // viewmodel.updatedQuantityValue
