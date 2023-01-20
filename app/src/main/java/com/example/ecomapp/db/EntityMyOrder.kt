@@ -6,8 +6,8 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "myorder-db")
 data class EntityMyOrder(
-    @PrimaryKey(autoGenerate = true)
-    val id:Int?=null,
+    @PrimaryKey
+    val id:Int,
 
     @ColumnInfo(name = "_quantity")
     val quantity:Int,

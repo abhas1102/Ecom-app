@@ -61,7 +61,7 @@ class MyOrdersFragment : Fragment() {
         } */
 
         for (i in itemDb.itemDao().getItems()) {
-            itemDb.itemDao().insertInMyOrder(EntityMyOrder(quantity = i.quantity, title = i.title, date = viewModelMyOrder.dateOfOrder))
+            itemDb.itemDao().insertInMyOrder(EntityMyOrder(id = i.id, quantity = i.quantity, title = i.title, date = viewModelMyOrder.dateOfOrder))
 
         }
 

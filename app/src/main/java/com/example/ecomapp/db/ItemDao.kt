@@ -12,6 +12,12 @@ interface ItemDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
      fun insert(item: Entity)
 
+     @Query("SELECT id FROM `cart-db`")
+     fun getIds():List<Int>
+
+    // @Query("SELECT quantity FROM `cart-db` WHERE id = id")
+   //  fun getQuantity(id:String):String
+
      @Delete
      fun deleteCart(items:List<Entity>)
 

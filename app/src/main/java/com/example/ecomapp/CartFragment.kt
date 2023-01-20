@@ -109,11 +109,11 @@ class CartFragment : Fragment() {
 
 
         //Adding values saved in viewmodel map in cartProductList so that all adapter can fetch values one by one from list
-        for (i in viewModelForCart.mapIdQuantity.values) {
+        for (i in viewModelForCart.mapIdQuantity) {
           //  cartProductList.add(CartProductDataModel(i.first,i.third,(i.first * i.second)))
            // cartProductList.add(CartProductDataModel(i.quantity, i.title,(i.price*i.quantity),i.image))
           //  cartProductsDbList.add(Entity(quantity =i.quantity,title =i.title,price =(i.price*i.quantity),image =i.image))
-            itemDb.itemDao().insert(Entity(quantity =i.quantity,title =i.title,price =(i.price*i.quantity),image =i.image))
+            itemDb.itemDao().insert(Entity(id = i.key,quantity =i.value.quantity,title =i.value.title,price =(i.value.price*i.value.quantity),image =i.value.image))
 
 
 

@@ -31,7 +31,7 @@ class ProductDetailFragment : Fragment() {
     //var quantityValue = 0
     private val viewmodel:MainViewModel by activityViewModels()
     var cartProductList = ArrayList<CartProductDataModel>()
-    val database:ItemRoomDatabase = ItemRoomDatabase.getDatabase(requireActivity())
+
 
 
     override fun onCreateView(
@@ -52,6 +52,7 @@ class ProductDetailFragment : Fragment() {
         val navBar:BottomNavigationView = requireActivity().findViewById(R.id.bottomNavigation)
        // navBar.visibility = View.GONE
        // val df = DecimalFormat("#.#", DecimalFormatSymbols(Locale.ENGLISH))
+        val database:ItemRoomDatabase = ItemRoomDatabase.getDatabase(requireActivity())
 
 
         binding.productDetails1 = arguments?.getParcelable("product")
@@ -79,10 +80,19 @@ class ProductDetailFragment : Fragment() {
                    viewmodel.updatedQuantityValue = 0
                    binding.quantityText.text = viewmodel.updatedQuantityValue.toString()
                } */
-      /*  val items = database.itemDao().getItems()
-        for (i in items) {
-            if (productDetail!!.id == i.id)
+        val items = database.itemDao().getItems()
+      /*  for (i in items) {
+            if (productDetail!!.id == i.id) {
+
+            }
         } */
+        val listOfIds = mutableListOf<Int?>()
+         listOfIds.addAll(items.map { it.id })
+
+
+      //  Log.d("ProductDetailQuantity", database.itemDao().getQuantity(id = productDetail!!.id.toString()).toString())
+        Log.d("ProductDetailQuantity", listOfIds.toString())
+
         if (productDetail!!.id in viewmodel.mapIdQuantity.keys) {
             // val value = viewmodel.mapIdQuantity.filterValues { it == productDetail.id }.keys
             var valueOfId = viewmodel.mapIdQuantity.getValue(productDetail.id)
@@ -142,6 +152,8 @@ class ProductDetailFragment : Fragment() {
                 //additional database insertion
                 database.itemDao().insert(Entity(id = productDetail.id, quantity = viewmodel.updatedQuantityValue,
                 title = productDetail.title, price = productDetail.price, image = productDetail.image))
+               // val ids = database.itemDao().getIds()
+              //  Log.d("ProductDetailListId", ids.toString())
                 //additional database insertion
                 viewmodel.mapIdQuantity.put(
                     productDetail.id,
